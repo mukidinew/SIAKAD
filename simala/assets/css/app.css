@@ -1,0 +1,179 @@
+.mb {
+	margin-bottom: 25px;
+}
+
+.btn-file {
+	position: relative;
+	overflow: hidden;
+}
+
+.btn-file input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	font-size: 100px;
+	text-align: right;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	outline: none;
+	background: white;
+	cursor: inherit;
+	display: block;
+}
+
+.ws-container {
+	min-height: 575px;
+	margin-bottom: 50px;
+}
+
+.page-header {
+	border-bottom: 1px solid orange;
+	margin-bottom: 50px;
+}
+
+.header_aksi {
+	padding-bottom: 20px;
+}
+
+.footer {
+	background-color: #469408;
+	/*background: -webkit-linear-gradient(210deg, #c4d422 30%, #87b110 50%, #469408 90%);
+	background: -o-linear-gradient(210deg, #c4d422 30%, #87b110 50%, #469408 90%);
+	background: -ms-linear-gradient(210deg, #c4d422 30%, #87b110 50%, #469408 90%);
+	background: -moz-linear-gradient(210deg, #c4d422 30%, #87b110 50%, #469408 90%);
+	background: linear-gradient(210deg, #c4d422 30%, #87b110 50%, #469408 90%);*/
+	color: #fff;
+	height: 40px;
+	text-align: center;;
+}
+
+.copy {
+	padding-top: 10px;
+}
+
+.copy a {
+	color: #fff;
+	text-decoration: none;;
+}
+
+.copy a:hover {
+	color: #d9230f
+}
+
+.bs-callout {
+	padding:20px;
+	margin:20px 0;
+	border:1px solid #eee;
+	border-left-width:5px;
+	border-radius:3px
+}
+
+.bs-callout h4 {
+	margin-top:0;
+	margin-bottom:5px
+}
+
+.bs-callout p:last-child {
+	margin-bottom:0
+}
+
+.bs-callout code {
+	border-radius:3px
+}
+
+.bs-callout+.bs-callout {
+	margin-top:-5px
+}
+
+.bs-callout-danger {
+	border-left-color:#ce4844
+}
+
+.bs-callout-danger h4 {
+	color:#ce4844
+}
+
+.bs-callout-warning {
+	border-left-color:#aa6708
+}
+
+.bs-callout-warning h4 {
+	color:#aa6708
+}
+
+.bs-callout-info {
+	border-left-color:#1b809e
+}
+
+.bs-callout-info h4 {
+	color:#1b809e
+}
+
+.bs-callout-success {
+	border-left-color:#3c763d;
+	/*color:#3c763d;
+	background-color:#dff0d8;*/
+	/*border-color:#d6e9c6;*/
+}
+
+.bs-callout-success h4 {
+	color:#3c763d;
+	/*font-weight: bold;*/
+}
+
+.dark {
+  color: #333333 !important;
+}
+.white {
+  color: #ffffff !important;
+}
+.red {
+  color: #dd5a43 !important;
+}
+.red2 {
+  color: #e08374 !important;
+}
+.light-red {
+  color: #ff7777 !important;
+}
+.blue {
+  color: #478fca !important;
+}
+.light-blue {
+  color: #93cbf9 !important;
+}
+.green {
+  color: #69aa46 !important;
+}
+.light-green {
+  color: #b0d877 !important;
+}
+.orange {
+  color: #ff892a !important;
+}
+.orange2 {
+  color: #feb902 !important;
+}
+.light-orange {
+  color: #fcac6f !important;
+}
+.purple {
+  color: #a069c3 !important;
+}
+.pink {
+  color: #c6699f !important;
+}
+.pink2 {
+  color: #d6487e !important;
+}
+.brown {
+  color: #a52a2a !important;
+}
+.grey {
+  color: #777777 !important;
+}
+.light-grey {
+  color: #bbbbbb !important;
+}
