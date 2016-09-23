@@ -519,6 +519,6 @@ $config['site_title2'] = 'SISTEM INFORMASI AKADEMIK MAHASISWA ALMAMATER STMIK AD
 $config['meta_desc'] = 'SIAKAD TERINTEGRASI';
 $config['meta_key'] = 'sisfo, akademik, online, webservice, feeder, pddikti, importir';
 $config['meta_author'] = 'sofyan saputra';
-
+$config['path_temps'] = 'temps/';
 $config['id_sp']="caded42a-bd40-4b64-8f85-28d6fe3a0a6d";
 $config['url_ws']='';

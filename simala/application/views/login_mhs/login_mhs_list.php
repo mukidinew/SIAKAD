@@ -46,7 +46,7 @@
                 <td><?php echo $login_mhs->nim ?></td>
                 <td><span class="label label-success"><?php echo  $login_mhs->ta ?></span></td>
                 <td style="text-align:center" width="200px">
-                  <a href="<?php echo site_url('login_mhs/delete/'.$login_mhs->id_user) ?>"><i class='fa fa-gears'> </i></a>
+                  <a href="<?php echo site_url('login_mhs/delete/'.$login_mhs->id_user) ?>"><i class='fa fa-trash'> </i></a>
                 </td>
               </tr>
               <?php

@@ -49,7 +49,7 @@
                 <?php endif; ?>
                 <td><?php echo  $key->status_ambil ?></td>
                 <td style="text-align:center" width="200px">
-                  <a href="<?php echo site_url('krs/proses_krs/'.$key->nim.'/'.$key->ta.'/'.$key->id_krs) ?>"><i class='fa fa-gears'> </i></a>
+                  <a href="<?php echo site_url('krs/proses_krs/'.$key->nim.'/'.$key->ta.'/'.$key->id_krs) ?>"><i class='fa fa-gears'> Proses</i></a> 
                 </td>
               </tr>
             <?php

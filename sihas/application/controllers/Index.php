@@ -45,7 +45,10 @@ class Index extends CI_Controller
     );
 
     $buka_krs = $this->app_model->get_query('SELECT * FROM v_count_down WHERE id_cd_krs="6"');
+    $pengumuman = $this->app_model->get_query("SELECT * FROM tb_pengumuman WHERE status='Y' ORDER BY id_pengumuman ASC")->result();
+
     $data['pengumuman']= $buka_krs->row();
+    $data['pengumuman_penting']= $pengumuman;
     $data['mhs_aktif'] = $data_angkatan;
     $data['mhs_lulus'] = $data_lulus;
     $data['site_title'] = 'SIPAD';

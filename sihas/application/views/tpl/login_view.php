@@ -78,6 +78,38 @@
             </div>
         </div>
     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <div class="row">
+                  <div class="col-xs-3">
+                      <i class="fa fa-shopping-cart"></i>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                      <div class=""><b>Pengumuman Kampus</b></div>
+                  </div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <?php foreach ($pengumuman as $key): ?>
+                <h4><p class="text-right">Tanggal : <?php echo $key->tanggal ?></p></h4>
+                <div class="col-md-12">
+                  <div class="well text-center">
+                    <div class="center text-large innerAll"><h2><i class="fa fa-chain-broken text-danger "></i> <?php echo $key->judul ?></h2></div>
+                    <h3 class="strong innerTB  "></h3>
+                    <p>
+                      <?php echo $key->tentang ?>
+                    </p>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/metisMenu.min.js"></script>

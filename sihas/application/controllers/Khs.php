@@ -27,7 +27,7 @@ class Khs extends CI_Controller
         'data_mhs_krs' => $data_mhs_krs
       );
       $data['site_title'] = 'SIMALA';
-      $data['title_page'] = 'Olah Kartu Rencana Studi Mahasiswa';
+      $data['title_page'] = 'Olah Kartu Hasil Studi Mahasiswa';
       $data['assign_js'] = 'khs/js/index.js';
       load_view('khs/list_krs', $data);
     }

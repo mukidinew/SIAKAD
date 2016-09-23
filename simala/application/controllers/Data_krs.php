@@ -5,6 +5,7 @@ if (!defined('BASEPATH'))
 
 class Data_krs extends CI_Controller
 {
+    private $template;
     function __construct()
     {
         parent::__construct();
@@ -16,6 +17,9 @@ class Data_krs extends CI_Controller
         }
         else {
           $this->load->model('Data_krs_model');
+          $this->load->model('App_model');
+          $this->load->library('excel');
+          $this->template = './template/krs_khs_template.xlsx';
           // $this->load->model('Kelas_kuliah_model','kelas');
           $this->load->model('mhs_krs_model','mhs_krs');
           $this->load->library('form_validation');
@@ -270,6 +274,63 @@ class Data_krs extends CI_Controller
       $data['title_page'] = 'Pembelian Mata Kuliah Mahasiswa Bersangkutan';
       $data['assign_js'] = 'data_krs/js/index.js';
       load_view('data_krs/tb_mhs_data_krs_proses',$data);
+    }
+
+    public function cetak_krs($nim,$ta,$id_krs){
+
+      $this->benchmark->mark('mulai');
+      $data_mhs = $this->App_model->get_query("SELECT * FROM tb_mhs WHERE nim='".$nim."'")->row();
+      $data_krs = $this->App_model->get_query("SELECT * FROM v_mhs_krs WHERE nim='".$nim."' AND id_krs='".$id_krs."'")->row();
+      //var_dump($temp_data);
+      $objPHPExcel = PHPExcel_IOFactory::load($this->template);
+
+      //SET SHEET KRS
+      $objPHPExcel->setActiveSheetIndex(0);
+      $objPHPExcel->getActiveSheet()->setCellValue('D6', $ta);
+      $objPHPExcel->getActiveSheet()->setCellValue('D7', 'S1 '.$data_krs->nm_prodi);
+      $objPHPExcel->getActiveSheet()->setCellValue('H6', $data_krs->nim);
+      $objPHPExcel->getActiveSheet()->setCellValue('H7', $data_krs->nama);
+      $objPHPExcel->getActiveSheet()->setCellValue('D8', '......');
+
+      $baseRow = 13;
+      $temp_data = $this->App_model->get_query("SELECT * FROM v_data_krs WHERE id_krs='".$id_krs."'")->result();
+      $temp_row=0;
+      $ttd_row=0;
+      foreach($temp_data as $r => $dataRow) {
+        $row = $baseRow + $r;
+        $objPHPExcel->getActiveSheet()->insertNewRowBefore($row,1);
+        $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
+                  ->setCellValue('B'.$row, $dataRow->id_matkul)
+                  ->setCellValue('C'.$row, $dataRow->nm_mk)
+                  ->setCellValue('F'.$row, 'A / U')
+                  ->setCellValue('G'.$row, $dataRow->sks)
+                  ->setCellValue('I'.$row, $dataRow->nm_dosen);
+        $temp_row = 1+$row;
+        $ttd_row = 5+$temp_row;
+      }
+
+      $objPHPExcel->getActiveSheet()->setCellValue('H'.$temp_row, date('d F Y'));
+      $objPHPExcel->getActiveSheet()->setCellValue('G'. $ttd_row, $data_mhs->nm_mhs);
+      $objPHPExcel->getActiveSheet()->removeRow($baseRow-1,1);
+
+      $nimd = $string = preg_replace('/\s+/', '', $nim);
+      $filename = $nimd."-".time().'-krs.xlsx';
+
+      $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+      //$objWriter->save('php://output');
+      $temp_tulis = $objWriter->save('temps/'.$filename);
+      $this->benchmark->mark('selesai');
+      $time_eks = $this->benchmark->elapsed_time('mulai', 'selesai');
+      if ($temp_tulis==NULL) {
+          $this->session->set_flashdata('message', "<div class=\"bs-callout bs-callout-success\">
+              File berhasil digenerate dalam waktu <strong>".$time_eks." detik</strong>. <br />Klik <a href=\"".base_url()."index.php/file/download/".$filename."\">disini</a> untuk download file
+            </div>");
+          redirect(site_url('data_krs'));
+      } else {
+          $this->session->set_flashdata('message',"<div class=\"bs-callout bs-callout-danger\">
+              <h4>Error</h4>File tidak bisa digenerate. Folder 'temps' tidak ada atau tidak bisa ditulisi.
+            </div>" );
+      }
     }
 
 }

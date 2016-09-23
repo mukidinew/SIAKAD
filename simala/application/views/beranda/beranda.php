@@ -5,7 +5,7 @@
         <h3><?php echo $title_page; ?></h3>
       </div>
       <div class="col-md-6">
-        
+
       </div>
     </div>
   </div>
@@ -39,7 +39,7 @@
                                       <i class="fa fa-users fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">26</div>
+                                      <div class="huge"><?php echo $count_mhs ?></div>
                                       <div>Mahasiswa Baru</div>
                                   </div>
                               </div>
@@ -61,7 +61,7 @@
                                       <i class="fa fa-mortar-board fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">12</div>
+                                      <div class="huge"><?php echo $count_mhs_lulus ?></div>
                                       <div>Mahasiswa Lulus</div>
                                   </div>
                               </div>
@@ -92,7 +92,7 @@
                                       <i class="fa  fa-list-ul fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">124</div>
+                                      <div class="huge"><?php echo $count_mata_kuliah ?></div>
                                       <div>Mata Kuliah</div>
                                   </div>
                               </div>
@@ -114,7 +114,7 @@
                                       <i class="fa fa-bar-chart-o fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">12</div>
+                                      <div class="huge"><?php echo $count_mk_kur ?></div>
                                       <div>MK Kurikulum</div>
                                   </div>
                               </div>
@@ -149,7 +149,7 @@
                                       <i class="fa  fa-list-ul fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">124</div>
+                                      <div class="huge"></div>
                                       <div>Kariawan</div>
                                   </div>
                               </div>
@@ -171,7 +171,7 @@
                                       <i class="fa fa-mortar-board fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">12</div>
+                                      <div class="huge"></div>
                                       <div>Tambah Data</div>
                                   </div>
                               </div>
@@ -202,7 +202,7 @@
                                       <i class="fa  fa-list-ul fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">124</div>
+                                      <div class="huge"></div>
                                       <div>Dosen</div>
                                   </div>
                               </div>
@@ -224,7 +224,7 @@
                                       <i class="fa fa-mortar-board fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">12</div>
+                                      <div class="huge"></div>
                                       <div>Tambah Data</div>
                                   </div>
                               </div>
@@ -259,7 +259,7 @@
                                       <i class="fa  fa-list-ul fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">124</div>
+                                      <div class="huge"><?php echo $count_kelas_kuliah ?></div>
                                       <div>Kelas Kuliah</div>
                                   </div>
                               </div>
@@ -281,7 +281,7 @@
                                       <i class="fa fa-mortar-board fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">12</div>
+                                      <div class="huge"><?php echo $count_data_krs ?></div>
                                       <div>KRS Mahasiswa</div>
                                   </div>
                               </div>

@@ -10,9 +10,7 @@
           </h3>
         </div>
         <div class="col-md-6 text-center">
-            <div style="margin-top: 4px"  id="message">
-                <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
-            </div>
+
         </div>
       </div>
     </div>
@@ -31,6 +29,7 @@
                       <th>Mata Kuliah</th>
                       <th>Kelas</th>
                       <th>SKS</th>
+                      <th>Action</th>
                   </tr>
               </thead>
 
@@ -48,6 +47,9 @@
                   <td><?php echo $data_krs->nm_mk ?></td>
                   <td><?php echo $data_krs->nm_kelas ?></td>
                   <td><?php echo $data_krs->sks ?></td>
+                  <td style="text-align:center">
+                    <a href='<?php echo site_url('krs/delete/'.$data_krs->id_data_krs.'/'.$this->uri->segment(5)) ?>' onclick=''><i class='fa fa-trash-o'></i></a>
+                  </td>
                  </tr>
                   <?php
               }
@@ -55,7 +57,7 @@
               </tbody>
               <tfoot>
                   <tr>
-                    <th colspan="4"><center>TOTAL SATUAN KREDIT YANG DIAMBIL</center></th>
+                    <th colspan="5"><center>TOTAL SATUAN KREDIT YANG DIAMBIL</center></th>
                     <th><?php echo $total_sks ?></th>
                   </tr>
               </tfoot>
@@ -114,8 +116,10 @@
       ?>
     </div>
     <div class="col-md-4">
-      <b>Beli Mata Kuliah</b><hr>
-      <?php if ($total_sks>=0 && $total_sks<=24 && $status_tutup==false && $status_buka==true): ?>
+      <b>Beli Mata Kuliah Tersisa <?php echo 24 - $total_sks; ?> SKS Lagi</b> <div style="margin-top: 4px"  id="message">
+          <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
+      </div><hr>
+      <?php if ($total_sks>=0 && $total_sks<=24 && $total_sks<=23 && $status_tutup==false && $status_buka==true): ?>
         <div class="col-md-12">
           <form action="<?php echo site_url('krs/krs_add') ?>" method="post">
             <div class="form-group">

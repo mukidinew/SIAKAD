@@ -43,7 +43,29 @@ class Index extends CI_Controller
       'ang_2010' => $count_mhs_l_4,
       'ang_2011' => $count_mhs_l_5
     );
+
+    $count_mhs = $this->app_model->total_rows("v_sync_mhs");
+    $count_mhs_lulus = $this->app_model->total_rows("v_sync_mhs_lulus");
+    $count_mk_kur = $this->app_model->total_rows("v_sync_mk_kurikulum");
+    $count_nilai = $this->app_model->total_rows("v_sync_nilai");
+    $count_kelas_kuliah = $this->app_model->total_rows("v_sync_kelas_kuliah");
+    $count_kelas_dosen = $this->app_model->total_rows("v_sync_kelas_dosen");
+    $count_data_krs = $this->app_model->total_rows("v_sync_data_krs");
+    $count_data_krs = $this->app_model->total_rows("v_sync_data_krs");
+    $count_kurikulum = $this->app_model->total_rows_where("tb_kurikulum","status_upload","N");
+    $count_mata_kuliah = $this->app_model->total_rows_where("tb_mata_kuliah","status_upload","N");
     
+
+    $data['count_mhs'] =$count_mhs ;
+    $data['count_kurikulum'] =$count_kurikulum ;
+    $data['count_mata_kuliah'] =$count_mata_kuliah ;
+    $data['count_mhs_lulus'] =$count_mhs_lulus;
+    $data['count_mk_kur'] =$count_mk_kur;
+    $data['count_nilai'] = $count_nilai;
+    $data['count_kelas_kuliah'] = $count_kelas_kuliah;
+    $data['count_kelas_dosen'] = $count_kelas_dosen;
+    $data['count_data_krs'] = $count_data_krs;
+
     $data['mhs_aktif'] = $data_angkatan;
     $data['mhs_lulus'] = $data_lulus;
     $data['site_title'] = 'SIMALA';

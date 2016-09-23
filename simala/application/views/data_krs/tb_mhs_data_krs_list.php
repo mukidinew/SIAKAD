@@ -49,6 +49,8 @@
                 <td style="text-align:center" width="200px">
                   <a href="<?php echo site_url('data_krs/konfirmasi/'.$key->nim.'/'.$key->kode_pembayaran) ?>"><i class='fa fa-pencil-square-o'></i></a> |
                   <a href="<?php echo site_url('data_krs/proses_krs/'.$key->nim.'/'.$key->ta) ?>"><i class='fa fa-gears'> </i></a>
+                  |
+                  <a href="<?php echo site_url('data_krs/cetak_krs/'.$key->nim.'/'.$key->ta.'/'.$key->id_krs) ?>"><i class='fa fa-archive'> Cetak </i></a>
                 </td>
               </tr>
             <?php

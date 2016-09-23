@@ -119,8 +119,8 @@ class Kelas_dosen extends CI_Controller
                 'button' => 'Update',
                 'action' => site_url('kelas_dosen/update_action'),
             		'id_kelas_dosen' => set_value('id_kelas_dosen', $row->id_kelas_dosen),
-            		'id_kelas_kuliah' => set_value('id_kelas_kuliah', $row->id_kelas_kuliah),
-            		'id_dosen' => set_value('id_dosen', $row->id_dosen),
+            		'id_kelas_kuliah_update' => set_value('id_kelas_kuliah_update', $row->id_kelas_kuliah),
+            		'id_dosen_update' => set_value('id_dosen_update', $row->id_dosen),
             		'r_t_muka' => set_value('r_t_muka', $row->r_t_muka),
             		't_muka' => set_value('t_muka', $row->t_muka),
             );
@@ -258,7 +258,7 @@ class Kelas_dosen extends CI_Controller
         $kelas_dosen = $this->Kelas_dosen_model->get_query("SELECT * FROM tb_dosen")->result();
       }
       else {
-        $kelas_dosen = $this->Kelas_dosen_model->get_limit_query_dosen('tb_dosen',$page,0,$cari);
+        $kelas_dosen = $this->app_model->get_query("SELECT * FROM tb_dosen WHERE nidn LIKE '%".$cari."%' OR nm_dosen LIKE '%".$cari."%'")->result();
       }
       $temps = array();
       foreach ($kelas_dosen as $key) {

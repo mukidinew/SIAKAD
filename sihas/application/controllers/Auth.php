@@ -17,6 +17,8 @@ class Auth extends CI_Controller {
 				redirect('Index');
 		}
 		else {
+			$pengumuman = $this->app_model->get_query("SELECT * FROM tb_pengumuman WHERE status='Y'")->result();
+			$data['pengumuman']=$pengumuman;
 			$data['site_title'] = 'Please Login';
 			$this->load->view('tpl/login_view',$data);
 		}

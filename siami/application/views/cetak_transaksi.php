@@ -39,7 +39,8 @@ table.laporan th {
 <table border="1px" width="100%" class="laporan">
   <thead>
     <tr>
-      <th>Kode bayar</th>
+      <th>Username</th>
+      <th>Password</th>
       <th width="100px">Konfirmasi</th>
       <th width="100px">Status</th>
       <th width="170px">Keterangan</th>
@@ -47,27 +48,31 @@ table.laporan th {
   </thead>
   <tbody>
     <tr>
-      <td><center><?php echo $kode_bayar ?></center></td>
+      <td><center><?php echo $nim ?></center></td>
+      <td><center><?php echo $nim ?></center></td>
       <td><center><?php echo $konfirmasi ?></center></td>
       <td><center><?php echo $status ?></center></td>
       <td><center><?php echo $periode ?></center></td>
     </tr>
   </tbody>
 </table>
+<p>
+  *<small><i>Validasikan Akun Anda Di BAAK untuk mengakses SIHAS</i></small>
+</p>
 <br>
 <table class="" width="100%">
   <tbody>
     <tr>
       <td colspan="4" width="60%"></td>
-      <td>Palu, <?php echo date('D-M-Y') ?></td>
+      <?php
+        $t=time();
+        $date_kok = date("Y-m-d",$t);
+      ?>
+      <td>Palu, <?php echo $date_kok ?></td>
     </tr>
     <tr>
       <td colspan="4"></td>
       <td>Bendahara</td>
-    </tr>
-    <tr>
-      <td colspan="4"></td>
-      <td><br></td>
     </tr>
     <tr>
       <td colspan="4"></td>

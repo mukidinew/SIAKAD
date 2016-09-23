@@ -95,7 +95,8 @@ $autoload['helper'] = array('url',
                               'file',
                               'directory',
                               'captcha',
-                              'cores'
+                              'cores',
+                              'download'
                             );
 
 /*

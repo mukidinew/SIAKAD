@@ -196,6 +196,7 @@
 		var kode_bayar= $('#kode_bayar').val();
 		var id_smt = $('#id_smt').val();
 		$.get("http://localhost/siakad/simala/index.php/auth/set_mode_kunci2?id_smt="+id_smt+"&kode_bayar="+kode_bayar+"&nim="+nim+"", function(data, status){ //pengiriman data jangan lupa di enkrip pake base64_encode
+			console.log(status);
 		   if (data==1) {
 		     alert('Jangan Lupa Cetak Laporan');
 				 window.location ='<?php echo site_url("/mahasiswa/d/".base64_encode($data->nim)) ?>';
