@@ -27,8 +27,10 @@ class Login_peg extends CI_Controller
         $data = array(
             'login_peg_data' => $login_peg
         );
-
-        $this->load->view('login_peg/login_peg_list', $data);
+        $data['site_title'] = 'SIMALA';
+        $data['title_page'] = 'Olah Data Pengguna Basis Pegawai';
+        $data['assign_js'] = 'login_peg/js/index.js';
+        load_view('login_peg/login_peg_list', $data);
     }
 
     public function read($id)
@@ -36,12 +38,15 @@ class Login_peg extends CI_Controller
         $row = $this->Login_peg_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'uid' => $row->uid,
-		'username' => $row->username,
-		'password' => $row->password,
-		'level' => $row->level,
-	    );
-            $this->load->view('login_peg/login_peg_read', $data);
+          		'uid' => $row->uid,
+          		'username' => $row->username,
+          		'password' => $row->password,
+          		'level' => $row->level,
+        	  );
+            $data['site_title'] = 'SIMALA';
+            $data['title_page'] = 'Olah Data Pengguna Basis Pegawai';
+            $data['assign_js'] = 'login_peg/js/index.js';
+            load_view('login_peg/login_peg_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('login_peg'));
@@ -53,12 +58,15 @@ class Login_peg extends CI_Controller
         $data = array(
             'button' => 'Create',
             'action' => site_url('login_peg/create_action'),
-	    'uid' => set_value('uid'),
-	    'username' => set_value('username'),
-	    'password' => set_value('password'),
-	    'level' => set_value('level'),
-	);
-        $this->load->view('login_peg/login_peg_form', $data);
+      	    'uid' => set_value('uid'),
+      	    'username' => set_value('username'),
+      	    'password' => set_value('password'),
+      	    'level' => set_value('level'),
+      	);
+        $data['site_title'] = 'SIMALA';
+        $data['title_page'] = 'Olah Data Pengguna Basis Pegawai';
+        $data['assign_js'] = 'login_peg/js/index.js';
+        load_view('login_peg/login_peg_form', $data);
     }
 
     public function create_action()
@@ -69,11 +77,10 @@ class Login_peg extends CI_Controller
             $this->create();
         } else {
             $data = array(
-		'username' => $this->input->post('username',TRUE),
-		'password' => $this->input->post('password',TRUE),
-		'level' => $this->input->post('level',TRUE),
-	    );
-
+          		'username' => $this->input->post('username',TRUE),
+          		'password' => $this->input->post('password',TRUE),
+          		'level' => $this->input->post('level',TRUE),
+          	);
             $this->Login_peg_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('login_peg'));
@@ -88,12 +95,15 @@ class Login_peg extends CI_Controller
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('login_peg/update_action'),
-		'uid' => set_value('uid', $row->uid),
-		'username' => set_value('username', $row->username),
-		'password' => set_value('password', $row->password),
-		'level' => set_value('level', $row->level),
-	    );
-            $this->load->view('login_peg/login_peg_form', $data);
+            		'uid' => set_value('uid', $row->uid),
+            		'username' => set_value('username', $row->username),
+            		'password' => set_value('password', $row->password),
+            		'level' => set_value('level', $row->level),
+            );
+            $data['site_title'] = 'SIMALA';
+            $data['title_page'] = 'Olah Data Pengguna Basis Pegawai';
+            $data['assign_js'] = 'login_peg/js/index.js';
+            load_view('login_peg/login_peg_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('login_peg'));
@@ -108,10 +118,10 @@ class Login_peg extends CI_Controller
             $this->update($this->input->post('uid', TRUE));
         } else {
             $data = array(
-		'username' => $this->input->post('username',TRUE),
-		'password' => $this->input->post('password',TRUE),
-		'level' => $this->input->post('level',TRUE),
-	    );
+          		'username' => $this->input->post('username',TRUE),
+          		'password' => $this->input->post('password',TRUE),
+          		'level' => $this->input->post('level',TRUE),
+          	);
 
             $this->Login_peg_model->update($this->input->post('uid', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -135,18 +145,12 @@ class Login_peg extends CI_Controller
 
     public function _rules()
     {
-	$this->form_validation->set_rules('username', 'username', 'trim|required');
-	$this->form_validation->set_rules('password', 'password', 'trim|required');
-	$this->form_validation->set_rules('level', 'level', 'trim|required');
+    	$this->form_validation->set_rules('username', 'username', 'trim|required');
+    	$this->form_validation->set_rules('password', 'password', 'trim|required');
+    	$this->form_validation->set_rules('level', 'level', 'trim|required');
 
-	$this->form_validation->set_rules('uid', 'uid', 'trim');
-	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+    	$this->form_validation->set_rules('uid', 'uid', 'trim');
+    	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
 }
-
-/* End of file Login_peg.php */
-/* Location: ./application/controllers/Login_peg.php */
-/* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2016-08-09 21:33:54 */
-/* http://harviacode.com */

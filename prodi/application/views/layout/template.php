@@ -84,7 +84,9 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="	fa fa-bar-chart"></i> Penelitian<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="<?php echo (isset($_SERVER['HTTPS']) ? "https://" : "http://").$_SERVER['HTTP_HOST'].":8000" ?>" target="_blank"><i class="fa fa-sticky-note"></i> Proposal Dan Skripsi</a></li>
+                    <li><a href="<?php echo site_url('proposal') ?>" target=""><i class="fa fa-sticky-note"></i> Proposal</a></li>
+                    <li><a href="<?php echo site_url('dosen_penguji') ?>" target=""><i class="fa fa-sticky-note"></i> Dosen Penguji</a></li>
+                    <li><a href="<?php echo site_url('skripsi') ?>" target=""><i class="fa fa-sticky-note"></i> Skripsi</a></li>
                   </ul>
                 </li>
             </ul>

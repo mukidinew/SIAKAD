@@ -1,5 +1,5 @@
 <script type="text/javascript">
     $(document).ready(function () {
-      $("#mytable").dataTable();
+      $(".tb_aktif").dataTable();
     });
 </script>
