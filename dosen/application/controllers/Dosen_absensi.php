@@ -23,7 +23,7 @@ class Dosen_absensi extends CI_Controller
         $this->load->view('dosen_absensi/tb_dosen_absensi_list', $data);
     }
 
-    public function read($id) 
+    public function read($id)
     {
         $row = $this->Dosen_absensi_model->get_by_id($id);
         if ($row) {
@@ -37,12 +37,12 @@ class Dosen_absensi extends CI_Controller
 	    );
             $this->load->view('dosen_absensi/tb_dosen_absensi_read', $data);
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            $this->session->set_flashdata('message', 'Data Tidak Ditemukan');
             redirect(site_url('dosen_absensi'));
         }
     }
 
-    public function create() 
+    public function create()
     {
         $data = array(
             'button' => 'Create',
@@ -56,8 +56,8 @@ class Dosen_absensi extends CI_Controller
 	);
         $this->load->view('dosen_absensi/tb_dosen_absensi_form', $data);
     }
-    
-    public function create_action() 
+
+    public function create_action()
     {
         $this->_rules();
 
@@ -77,8 +77,8 @@ class Dosen_absensi extends CI_Controller
             redirect(site_url('dosen_absensi'));
         }
     }
-    
-    public function update($id) 
+
+    public function update($id)
     {
         $row = $this->Dosen_absensi_model->get_by_id($id);
 
@@ -99,8 +99,8 @@ class Dosen_absensi extends CI_Controller
             redirect(site_url('dosen_absensi'));
         }
     }
-    
-    public function update_action() 
+
+    public function update_action()
     {
         $this->_rules();
 
@@ -120,8 +120,8 @@ class Dosen_absensi extends CI_Controller
             redirect(site_url('dosen_absensi'));
         }
     }
-    
-    public function delete($id) 
+
+    public function delete($id)
     {
         $row = $this->Dosen_absensi_model->get_by_id($id);
 
@@ -135,7 +135,7 @@ class Dosen_absensi extends CI_Controller
         }
     }
 
-    public function _rules() 
+    public function _rules()
     {
 	$this->form_validation->set_rules('id_kelas_dosen', 'id kelas dosen', 'trim|required');
 	$this->form_validation->set_rules('tgl_masuk', 'tgl masuk', 'trim|required');

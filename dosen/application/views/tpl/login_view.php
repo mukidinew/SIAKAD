@@ -63,7 +63,7 @@
                                     <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" >
                                 </div>
                                 <div class="form-group">
-                                	<label>NIDN</label>
+                                	<label>Kode Kelas</label>
                                     <input class="form-control" placeholder="NIDN" value="<?php echo set_value('nidn'); ?>" name="nidn" autofocus>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
