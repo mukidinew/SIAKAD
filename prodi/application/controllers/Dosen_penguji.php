@@ -15,7 +15,7 @@ class Dosen_penguji extends CI_Controller
 
     public function index()
     {
-        $mhs_proposal = $this->App_model->get_query("SELECT * FROM v_proposal_maju WHERE kd_prodi='".$this->session->userdata('level_prodi')."'")->result();
+        $mhs_proposal = $this->App_model->get_query("SELECT * FROM v_proposal_maju WHERE id_prodi='".$this->session->userdata('level_prodi')."'")->result();
         // $dosen_penguji = $this->Dosen_penguji_model->get_all();
         $data = array(
           // 'dosen_penguji_data' => $dosen_penguji
