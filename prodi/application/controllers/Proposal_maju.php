@@ -9,21 +9,23 @@ class Proposal_maju extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Proposal_maju_model');
+        $this->load->model('App_model');
         $this->load->library('form_validation');
     }
 
     public function index()
     {
-        $proposal_maju = $this->Proposal_maju_model->get_all();
-
+        $proposal_maju = $this->App_model->get_query("SELECT * FROM v_proposal_maju")->result();
         $data = array(
             'proposal_maju_data' => $proposal_maju
         );
-
-        $this->load->view('proposal_maju/tb_proposal_maju_list', $data);
+        $data['site_title'] = 'SIPAD';
+        $data['title_page'] = 'Olah Data Maju Proposal';
+        $data['assign_js'] = 'proposal_maju/js/index.js';
+        load_view('proposal_maju/tb_proposal_maju_list', $data);
     }
 
-    public function read($id) 
+    public function read($id)
     {
         $row = $this->Proposal_maju_model->get_by_id($id);
         if ($row) {
@@ -35,29 +37,36 @@ class Proposal_maju extends CI_Controller
 		'bebas_smt' => $row->bebas_smt,
 		'tgl_daftar' => $row->tgl_daftar,
 	    );
-            $this->load->view('proposal_maju/tb_proposal_maju_read', $data);
+      $data['site_title'] = 'SIPAD';
+      $data['title_page'] = 'Olah Data Maju Proposal';
+      $data['assign_js'] = 'proposal_maju/js/index.js';
+            load_view('proposal_maju/tb_proposal_maju_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('proposal_maju'));
         }
     }
 
-    public function create() 
+    public function create()
     {
+
         $data = array(
             'button' => 'Create',
             'action' => site_url('proposal_maju/create_action'),
-	    'id_proposal_maju' => set_value('id_proposal_maju'),
-	    'id_proposal' => set_value('id_proposal'),
-	    'kode_bayar' => set_value('kode_bayar'),
-	    'bebas_pustaka' => set_value('bebas_pustaka'),
-	    'bebas_smt' => set_value('bebas_smt'),
-	    'tgl_daftar' => set_value('tgl_daftar'),
-	);
-        $this->load->view('proposal_maju/tb_proposal_maju_form', $data);
+        	    'id_proposal_maju' => set_value('id_proposal_maju'),
+        	    'id_proposal' => set_value('id_proposal'),
+        	    'kode_bayar' => set_value('kode_bayar'),
+        	    'bebas_pustaka' => set_value('bebas_pustaka'),
+        	    'bebas_smt' => set_value('bebas_smt'),
+        	    'tgl_daftar' => set_value('tgl_daftar'),
+        	);
+          $data['site_title'] = 'SIPAD';
+          $data['title_page'] = 'Olah Data Maju Proposal';
+          $data['assign_js'] = 'proposal_maju/js/index.js';
+        load_view('proposal_maju/tb_proposal_maju_form', $data);
     }
-    
-    public function create_action() 
+
+    public function create_action()
     {
         $this->_rules();
 
@@ -77,8 +86,8 @@ class Proposal_maju extends CI_Controller
             redirect(site_url('proposal_maju'));
         }
     }
-    
-    public function update($id) 
+
+    public function update($id)
     {
         $row = $this->Proposal_maju_model->get_by_id($id);
 
@@ -93,14 +102,17 @@ class Proposal_maju extends CI_Controller
 		'bebas_smt' => set_value('bebas_smt', $row->bebas_smt),
 		'tgl_daftar' => set_value('tgl_daftar', $row->tgl_daftar),
 	    );
-            $this->load->view('proposal_maju/tb_proposal_maju_form', $data);
+      $data['site_title'] = 'SIPAD';
+      $data['title_page'] = 'Olah Data Maju Proposal';
+      $data['assign_js'] = 'proposal_maju/js/index.js';
+            load_view('proposal_maju/tb_proposal_maju_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('proposal_maju'));
         }
     }
-    
-    public function update_action() 
+
+    public function update_action()
     {
         $this->_rules();
 
@@ -120,8 +132,8 @@ class Proposal_maju extends CI_Controller
             redirect(site_url('proposal_maju'));
         }
     }
-    
-    public function delete($id) 
+
+    public function delete($id)
     {
         $row = $this->Proposal_maju_model->get_by_id($id);
 
@@ -135,7 +147,7 @@ class Proposal_maju extends CI_Controller
         }
     }
 
-    public function _rules() 
+    public function _rules()
     {
 	$this->form_validation->set_rules('id_proposal', 'id proposal', 'trim|required');
 	$this->form_validation->set_rules('kode_bayar', 'kode bayar', 'trim|required');
@@ -194,10 +206,28 @@ class Proposal_maju extends CI_Controller
         exit();
     }
 
-}
+    public function getMhsProposal()
+    {
+      $prodi='';
+      $cari = $this->input->post('q');
+      $temp_cari = $cari==''?'':$cari;
+      $page = $this->input->post('page');
+      if ($page=='') {
+        $prodi = $this->App_model->get_query("SELECT * FROM v_list_proposal WHERE id_prodi='". $this->session->userdata('level_prodi') ."'")->result();
+      }
+      else {
+        $prodi = $this->App_model->get_query("SELECT * FROM v_list_proposal WHERE id_prodi='". $this->session->userdata('level_prodi') ."' AND  (nim LIKE '%".$cari."%' OR nm_mhs LIKE '%".$cari."%')")->result();
+      }
 
-/* End of file Proposal_maju.php */
-/* Location: ./application/controllers/Proposal_maju.php */
-/* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2016-09-23 17:51:03 */
-/* http://harviacode.com */
+      $temps = array();
+      foreach ($prodi as $key) {
+        $temps[] = array(
+          'id_mhs_proposal' => $key->id_mhs_proposal,
+          'nim' => $key->nim,
+          'nm_mhs' => $key->nm_mhs,
+          'judul' => $key->judul
+        );
+      }
+      echo json_encode($temps);
+    }
+}

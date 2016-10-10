@@ -19,31 +19,35 @@ $(document).ready( function() {
 			if( log ) alert(log);
 		}
 	});
-	
+
+	$('.datepicker').datepicker({
+			format: 'yyyy-mm-dd',
+			startDate: '-3d'
+	});
 });
 
-function stats(x) {
-	if(x == 0) {
-		$("#notif").html('<i class="fa fa-spinner fa-spin"></i>');
-	} else {
-		$("#notif").html('');
-	}
-	$.ajax({
-		url: top_url+"file/check",
-		cache: false,
-		error: function(html) {
-			//$(".stats-loading").html('<div class="info-message">We couldn\'t fetch any data, please try again.</div>');
-		},
-		success: function(html) {
-			$("#notif").empty();
-			$("#notif").delay(0).animate({"opacity": "1"}, 700);
-			$("#notif").prepend($(html).filter('.notif'));
-			//$("#notif").prepend($(html));
-		}
-	});
-}
+// function stats(x) {
+// 	if(x == 0) {
+// 		$("#notif").html('<i class="fa fa-spinner fa-spin"></i>');
+// 	} else {
+// 		$("#notif").html('');
+// 	}
+// 	$.ajax({
+// 		url: top_url+"file/check",
+// 		cache: false,
+// 		error: function(html) {
+// 			//$(".stats-loading").html('<div class="info-message">We couldn\'t fetch any data, please try again.</div>');
+// 		},
+// 		success: function(html) {
+// 			$("#notif").empty();
+// 			$("#notif").delay(0).animate({"opacity": "1"}, 700);
+// 			$("#notif").prepend($(html).filter('.notif'));
+// 			//$("#notif").prepend($(html));
+// 		}
+// 	});
+// }
 //stats(0);
-setInterval(stats(), 1000);
+//setInterval(stats(), 1000);
 
 $('a.modalButton').click(function(){
 	var src = $(this).attr('data-src');

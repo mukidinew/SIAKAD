@@ -9,49 +9,60 @@ class Dosen_pembimbing extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Dosen_pembimbing_model');
+        $this->load->model('App_model');
         $this->load->library('form_validation');
     }
 
     public function index()
     {
-        $dosen_pembimbing = $this->Dosen_pembimbing_model->get_all();
+        $dosen_pembimbing = $this->App_model->get_query("SELECT * FROM v_dosen_pembimbing")->result();
 
         $data = array(
             'dosen_pembimbing_data' => $dosen_pembimbing
         );
-
-        $this->load->view('dosen_pembimbing/tb_dosen_pembimbing_list', $data);
+        $data['site_title'] = 'SIPAD';
+    		$data['title_page'] = 'Olah Data Dosen Pembimbing';
+    		$data['assign_js'] = 'dosen_pembimbing/js/index.js';
+        load_view('dosen_pembimbing/tb_dosen_pembimbing_list', $data);
     }
 
-    public function read($id) 
+    public function read($id)
     {
         $row = $this->Dosen_pembimbing_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'id_pembimbing' => $row->id_pembimbing,
-		'id_dosen' => $row->id_dosen,
-		'status' => $row->status,
-	    );
-            $this->load->view('dosen_pembimbing/tb_dosen_pembimbing_read', $data);
+          		'id_pembimbing' => $row->id_pembimbing,
+          		'id_dosen' => $row->id_dosen,
+          		'status' => $row->status,
+      	    );
+            $data['site_title'] = 'SIPAD';
+            $data['title_page'] = 'Olah Data Dosen Pembimbing';
+            $data['assign_js'] = 'dosen_pembimbing/js/index.js';
+            load_view('dosen_pembimbing/tb_dosen_pembimbing_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('dosen_pembimbing'));
         }
     }
 
-    public function create() 
+    public function create()
     {
+        $dos_pem = $this->App_model->get_query("SELECT * FROM tb_dosen")->result();
         $data = array(
             'button' => 'Create',
             'action' => site_url('dosen_pembimbing/create_action'),
-	    'id_pembimbing' => set_value('id_pembimbing'),
-	    'id_dosen' => set_value('id_dosen'),
-	    'status' => set_value('status'),
-	);
-        $this->load->view('dosen_pembimbing/tb_dosen_pembimbing_form', $data);
+      	    'id_pembimbing' => set_value('id_pembimbing'),
+      	    'id_dosen' => set_value('id_dosen'),
+      	    'status' => set_value('status'),
+      	);
+        $data['dos_pem'] = $dos_pem;
+        $data['site_title'] = 'SIPAD';
+        $data['title_page'] = 'Olah Data Dosen Pembimbing';
+        $data['assign_js'] = 'dosen_pembimbing/js/index.js';
+        load_view('dosen_pembimbing/tb_dosen_pembimbing_form', $data);
     }
-    
-    public function create_action() 
+
+    public function create_action()
     {
         $this->_rules();
 
@@ -59,17 +70,16 @@ class Dosen_pembimbing extends CI_Controller
             $this->create();
         } else {
             $data = array(
-		'id_dosen' => $this->input->post('id_dosen',TRUE),
-		'status' => $this->input->post('status',TRUE),
-	    );
-
+          		'id_dosen' => $this->input->post('id_dosen',TRUE),
+          		'status' => $this->input->post('status',TRUE),
+        	  );
             $this->Dosen_pembimbing_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('dosen_pembimbing'));
         }
     }
-    
-    public function update($id) 
+
+    public function update($id)
     {
         $row = $this->Dosen_pembimbing_model->get_by_id($id);
 
@@ -77,18 +87,21 @@ class Dosen_pembimbing extends CI_Controller
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('dosen_pembimbing/update_action'),
-		'id_pembimbing' => set_value('id_pembimbing', $row->id_pembimbing),
-		'id_dosen' => set_value('id_dosen', $row->id_dosen),
-		'status' => set_value('status', $row->status),
-	    );
-            $this->load->view('dosen_pembimbing/tb_dosen_pembimbing_form', $data);
+            		'id_pembimbing' => set_value('id_pembimbing', $row->id_pembimbing),
+            		'id_dosen' => set_value('id_dosen', $row->id_dosen),
+            		'status' => set_value('status', $row->status),
+        	  );
+            $data['site_title'] = 'SIPAD';
+            $data['title_page'] = 'Olah Data Dosen Pembimbing';
+            $data['assign_js'] = 'dosen_pembimbing/js/index.js';
+            load_view('dosen_pembimbing/tb_dosen_pembimbing_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('dosen_pembimbing'));
         }
     }
-    
-    public function update_action() 
+
+    public function update_action()
     {
         $this->_rules();
 
@@ -96,17 +109,17 @@ class Dosen_pembimbing extends CI_Controller
             $this->update($this->input->post('id_pembimbing', TRUE));
         } else {
             $data = array(
-		'id_dosen' => $this->input->post('id_dosen',TRUE),
-		'status' => $this->input->post('status',TRUE),
-	    );
+          		'id_dosen' => $this->input->post('id_dosen',TRUE),
+          		'status' => $this->input->post('status',TRUE),
+        	  );
 
             $this->Dosen_pembimbing_model->update($this->input->post('id_pembimbing', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
             redirect(site_url('dosen_pembimbing'));
         }
     }
-    
-    public function delete($id) 
+
+    public function delete($id)
     {
         $row = $this->Dosen_pembimbing_model->get_by_id($id);
 
@@ -120,13 +133,13 @@ class Dosen_pembimbing extends CI_Controller
         }
     }
 
-    public function _rules() 
+    public function _rules()
     {
-	$this->form_validation->set_rules('id_dosen', 'id dosen', 'trim|required');
-	$this->form_validation->set_rules('status', 'status', 'trim|required');
+    	$this->form_validation->set_rules('id_dosen', 'id dosen', 'trim|required');
+    	$this->form_validation->set_rules('status', 'status', 'trim|required');
 
-	$this->form_validation->set_rules('id_pembimbing', 'id_pembimbing', 'trim');
-	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+    	$this->form_validation->set_rules('id_pembimbing', 'id_pembimbing', 'trim');
+    	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
     public function excel()

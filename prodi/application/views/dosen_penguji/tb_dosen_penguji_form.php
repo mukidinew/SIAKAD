@@ -13,7 +13,13 @@
           <b>Ketua Penguji</b><hr>
           <div class="form-group">
               <label for="varchar">Id Dosen <?php echo form_error('id_dosen') ?></label>
-              <input type="text" class="form-control" name="id_dosen_ketua" id="id_dosen_ketua" placeholder="Id Dosen" value="<?php echo $id_dosen_ketua; ?>" />
+              <!-- <input type="text" class="form-control" name="id_dosen_ketua" id="id_dosen_ketua" placeholder="Id Dosen" value="<?php echo $id_dosen_ketua; ?>" /> -->
+              <select class="form-control" name="id_dosen_ketua" id="id_dosen_ketua">
+                <option value="">--- Select One ---</option>
+                <?php foreach ($dosen as $key): ?>
+                  <option value="<?php echo $key->nidn ?>"><?php echo $key->nm_dosen ?></option>
+                <?php endforeach; ?>
+              </select>
           </div>
           <div class="form-group">
               <label for="enum">Jabatan Penguji</label>
@@ -24,7 +30,14 @@
           <b>Sekretaris Penguji</b><hr>
           <div class="form-group">
               <label for="varchar">Id Dosen <?php echo form_error('id_dosen') ?></label>
-              <input type="text" class="form-control" name="id_dosen_sek" id="id_dosen_sek" placeholder="Id Dosen" value="<?php echo $id_dosen_sek; ?>" />
+              <!-- <input type="text" class="form-control" name="id_dosen_sek" id="id_dosen_sek" placeholder="Id Dosen" value="<?php echo $id_dosen_sek; ?>" /> -->
+
+              <select class="form-control" name="id_dosen_sek" id="id_dosen_sek">
+                <option value="">--- Select One ---</option>
+                <?php foreach ($dosen as $key): ?>
+                  <option value="<?php echo $key->nidn ?>"><?php echo $key->nm_dosen ?></option>
+                <?php endforeach; ?>
+              </select>
           </div>
           <div class="form-group">
               <label for="enum">Jabatan Penguji </label>
@@ -32,13 +45,29 @@
           </div>
         </div>
         <div class="col-md-12">
+          <b>Anggota Penguji</b><hr>
+          <div class="form-group">
+              <label for="varchar">Id Dosen <?php echo form_error('id_dosen') ?></label>
+              <!-- <input type="text" class="form-control" name="id_dosen_sek" id="id_dosen_sek" placeholder="Id Dosen" value="<?php echo $id_dosen_sek; ?>" /> -->
+
+              <select class="form-control" name="id_dosen_3" id="id_dosen_3">
+                <option value="">--- Select One ---</option>
+                <?php foreach ($dosen as $key): ?>
+                  <option value="<?php echo $key->nidn ?>"><?php echo $key->nm_dosen ?></option>
+                <?php endforeach; ?>
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="enum">Jabatan Penguji </label>
+              <input type="text" class="form-control" name="jabatan_penguji_3" id="jabatan_penguji_3" placeholder="Jabatan Penguji" value="5" readonly/>
+          </div>
           <br><hr>
         </div>
         <div class="col-md-6">
-          <b>Penguji Pertama</b><hr>
+          <b>Pembimbing Pertama</b><hr>
           <div class="form-group">
               <label for="varchar">Id Dosen <?php echo form_error('id_dosen') ?></label>
-              <input type="text" class="form-control" name="id_dosen_1" id="id_dosen_1" placeholder="Id Dosen" value="<?php echo $id_dosen_1; ?>" />
+              <input type="text" class="form-control" name="id_dosen_1" id="id_dosen_1" placeholder="Id Dosen" value="<?php echo $id_dosen_1; ?>" readonly />
           </div>
           <div class="form-group">
               <label for="enum">Jabatan Penguji <?php echo form_error('jabatan_penguji') ?></label>
@@ -46,10 +75,10 @@
           </div>
         </div>
         <div class="col-md-6">
-          <b>Penguji Kedua</b><hr>
+          <b>Pembimbing Kedua</b><hr>
           <div class="form-group">
               <label for="varchar">Id Dosen <?php echo form_error('id_dosen') ?></label>
-              <input type="text" class="form-control" name="id_dosen_2" id="id_dosen_2" placeholder="Id Dosen" value="<?php echo $id_dosen_2; ?>" />
+              <input type="text" class="form-control" name="id_dosen_2" id="id_dosen_2" placeholder="Id Dosen" value="<?php echo $id_dosen_2; ?>" readonly/>
           </div>
           <div class="form-group">
               <label for="enum">Jabatan Penguji</label>
@@ -57,7 +86,7 @@
           </div>
         </div>
         <div class="col-md-12">
-          <input type="hidden" name="id_dosen_penguji" value="<?php echo $id_dosen_penguji; ?>" />
+          <!-- <input type="hidden" name="id_dosen_penguji" value="<?php echo $id_dosen_penguji; ?>" /> -->
           <input type="hidden" class="form-control" name="id_proposal_maju" id="id_proposal_maju" value="<?php echo $id_proposal_maju; ?>" />
           <input type="hidden" class="form-control" name="nim" id="nim" value="<?php echo $nim; ?>" />
           <button type="submit" class="btn btn-primary pull-right"><?php echo $button ?></button>

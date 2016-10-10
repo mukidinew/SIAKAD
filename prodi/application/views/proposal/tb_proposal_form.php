@@ -26,7 +26,7 @@
             <select class="form-control" name="id_pembimbing_1" id="id_pembimbing_1">
               <option value="">------ Select One ------</option>
               <?php foreach ($dos_pem1 as $key): ?>
-              <option value="<?php echo $key->id_dosen ?>"><?php echo $key->nm_dosen ?></option>
+              <option value="<?php echo $key->id_pembimbing ?>"><?php echo $key->nm_dosen ?></option>
               <?php endforeach; ?>
             </select>
           <?php else: ?>
@@ -36,10 +36,10 @@
         <div class="form-group">
           <label for="int">Pembimbing 2 <?php echo form_error('id_pembimbing_2') ?></label>
           <?php if ($picu=='create'): ?>
-            <select class="form-control" name="id_pembimbing_1" id="id_pembimbing_1">
+            <select class="form-control" name="id_pembimbing_2" id="id_pembimbing_2">
               <option value="">------ Select One ------</option>
               <?php foreach ($dos_pem2 as $key): ?>
-              <option value="<?php echo $key->id_dosen ?>"><?php echo $key->nm_dosen ?></option>
+              <option value="<?php echo $key->id_pembimbing ?>"><?php echo $key->nm_dosen ?></option>
               <?php endforeach; ?>
             </select>
           <?php else: ?>

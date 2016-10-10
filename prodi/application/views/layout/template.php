@@ -20,6 +20,7 @@
     <link href="<?php echo base_url(); ?>assets/css/dropdowns-enhancement.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/select2.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/select2-bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/datepicker.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/app.css" rel="stylesheet">
     <link rel="shortcut icon" href="wsclient.ico" title="Favicon" />
 
@@ -85,6 +86,8 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="	fa fa-bar-chart"></i> Penelitian<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="<?php echo site_url('proposal') ?>" target=""><i class="fa fa-sticky-note"></i> Proposal</a></li>
+                    <li><a href="<?php echo site_url('proposal_maju') ?>" target=""><i class="fa fa-sticky-note"></i> Daftar Proposal</a></li>
+                    <li><a href="<?php echo site_url('dosen_pembimbing') ?>" target=""><i class="fa fa-sticky-note"></i> Pembimbing</a></li>
                     <li><a href="<?php echo site_url('dosen_penguji') ?>" target=""><i class="fa fa-sticky-note"></i> Dosen Penguji</a></li>
                     <li><a href="<?php echo site_url('skripsi') ?>" target=""><i class="fa fa-sticky-note"></i> Skripsi</a></li>
                   </ul>
@@ -120,9 +123,9 @@
     <script src="<?php echo base_url(); ?>assets/js/ladda.min.js?v=0.9.4"></script>
     <script src="<?php echo base_url(); ?>assets/js/dropdowns-enhancement.js?v=3.1.1"></script>
     <script src="<?php echo base_url();?>assets/js/back-to-top.js"></script>
-    <script src="<?php echo base_url();?>assets/js/jquery.form.js"></script>
-    <script src="<?php echo base_url();?>assets/js/app.js"></script>
     <script src="<?php echo base_url();?>assets/js/bootstrap-typeahead.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/bootstrap-datepicker.js"></script>
+    <script src="<?php echo base_url();?>assets/js/app.js"></script>
     <?php
         //echo $assign_js;
         if ($assign_js != '') {

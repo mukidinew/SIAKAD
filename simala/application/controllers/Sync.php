@@ -116,7 +116,7 @@ class Sync extends CI_Controller
         $jk = trim($key->jenkel);
         $agama = trim($key->agama);
         $ds_kel = $key->alamat;
-        $wilayah = trim($key->wilayah);
+        $wilayah = "180000";
         $nm_ibu = $key->nm_ibu;
         $kode_prodi = trim($key->id_prodi);
         $tgl_masuk = $key->tgl_masuk;
@@ -166,6 +166,7 @@ class Sync extends CI_Controller
         }
 
       $temp_result = $this->feeder->insertrecord($this->temp_token, "mahasiswa", $temp_data);
+      echo json_encode($temp_result)."<br>";
         if ($temp_result['result']) {
            $temps_data['id_pd'] = $temp_result['result']['id_pd'];
            $temps_result = $this->feeder->insertrecord($this->temp_token, "mahasiswa_pt", $temps_data);

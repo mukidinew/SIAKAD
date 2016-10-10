@@ -26,14 +26,14 @@
         <?php foreach ($mhs_proposal as $key): ?>
           <tr>
             <td><?php echo $no++ ?></td>
-            <td><?php echo $key->id_mhs ?></td>
+            <td><?php echo $key->nim ?></td>
             <td><?php echo $key->nm_mhs ?></td>
             <td><?php echo $key->judul ?></td>
             <td><?php echo $key->tgl_daftar ?></td>
             <td><?php echo $key->pembimbing_1 ?></td>
             <td><?php echo $key->pembimbing_2 ?></td>
             <td style="text-align:center">
-              <a href="<?php echo site_url('dosen_penguji/get_penguji/'.$key->id_proposal_maju.'/'.$key->id_mhs) ?>"><i class='fa fa-gears'> Proses</i></a>
+              <a href="<?php echo site_url('dosen_penguji/get_penguji/'.$key->id_proposal_maju.'/'.$key->nim.'/'.$key->nidn_pembimbing_1.'/'.$key->nidn_pembimbing_2) ?>"><i class='fa fa-gears'> Proses</i></a>
             </td>
           </tr>
         <?php endforeach; ?>
