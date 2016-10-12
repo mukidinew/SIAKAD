@@ -27,6 +27,7 @@
                   <th>Bebas Pustaka</th>
                   <th>Bebas Smt</th>
                   <th>Tgl Daftar</th>
+                  <th>Tgl Maju</th>
                   <th>Action</th>
               </tr>
           </thead>
@@ -44,14 +45,12 @@
                 <td><?php echo $proposal_maju->bebas_pustaka ?></td>
                 <td><?php echo $proposal_maju->bebas_smt ?></td>
                 <td><?php echo $proposal_maju->tgl_daftar ?></td>
+                <td><?php echo $proposal_maju->tgl_maju ?></td>
                 <td style="text-align:center" width="200px">
-                <?php
-                echo anchor(site_url('proposal_maju/read/'.$proposal_maju->id_proposal_maju),'Read');
-                echo ' | ';
-                echo anchor(site_url('proposal_maju/update/'.$proposal_maju->id_proposal_maju),'Update');
-                echo ' | ';
-                echo anchor(site_url('proposal_maju/delete/'.$proposal_maju->id_proposal_maju),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
-                ?>
+                  <a href='<?php echo site_url('proposal_maju/read/'.$proposal_maju->id_proposal_maju) ?>'><i class='fa fa-eye'></i></a> |
+                  <a href='<?php echo site_url('proposal_maju/update/'.$proposal_maju->id_proposal_maju) ?>'><i class='fa fa-pencil-square-o'></i></a> |
+                  <a href='<?php echo site_url('proposal_maju/delete/'.$proposal_maju->id_proposal_maju) ?>' onclick='javasciprt: return confirm("Are You Sure ?")'><i class='fa fa-trash-o'></i></a> |
+                  <a href="<?php echo site_url('proposal_maju/cetak_surat/'.$proposal_maju->id_proposal_maju) ?>" target="_blank"><i class='fa fa-gears'> Surat</i></a>
                 </td>
               </tr>
               <?php

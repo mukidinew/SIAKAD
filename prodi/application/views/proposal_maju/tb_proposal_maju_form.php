@@ -37,6 +37,10 @@
                 <label for="datetime">Tgl Daftar <?php echo form_error('tgl_daftar') ?></label>
                 <input type="text" class="form-control datepicker" name="tgl_daftar" id="tgl_daftar" placeholder="Tgl Daftar" value="<?php echo $tgl_daftar; ?>" />
             </div>
+            <div class="form-group">
+                  <label for="datetime">Tgl Maju <?php echo form_error('tgl_maju') ?></label>
+                  <input type="text" class="form-control datepicker" name="tgl_maju" id="tgl_maju" placeholder="Tgl maju" value="<?php echo $tgl_maju; ?>" />
+              </div>
           <input type="hidden" name="id_proposal_maju" value="<?php echo $id_proposal_maju; ?>" />
           <button type="submit" class="btn btn-primary"><?php echo $button ?></button>
           <a href="<?php echo site_url('proposal_maju') ?>" class="btn btn-default">Cancel</a>

@@ -58,7 +58,8 @@ class Proposal_maju extends CI_Controller
         	    'kode_bayar' => set_value('kode_bayar'),
         	    'bebas_pustaka' => set_value('bebas_pustaka'),
         	    'bebas_smt' => set_value('bebas_smt'),
-        	    'tgl_daftar' => set_value('tgl_daftar'),
+              'tgl_daftar' => set_value('tgl_daftar'),
+        	    'tgl_maju' => set_value('tgl_maju'),
         	);
           $data['site_title'] = 'SIPAD';
           $data['title_page'] = 'Olah Data Maju Proposal';
@@ -78,7 +79,8 @@ class Proposal_maju extends CI_Controller
 		'kode_bayar' => $this->input->post('kode_bayar',TRUE),
 		'bebas_pustaka' => $this->input->post('bebas_pustaka',TRUE),
 		'bebas_smt' => $this->input->post('bebas_smt',TRUE),
-		'tgl_daftar' => $this->input->post('tgl_daftar',TRUE),
+    'tgl_daftar' => $this->input->post('tgl_daftar',TRUE),
+		'tgl_maju' => $this->input->post('tgl_maju',TRUE),
 	    );
 
             $this->Proposal_maju_model->insert($data);
@@ -100,7 +102,8 @@ class Proposal_maju extends CI_Controller
 		'kode_bayar' => set_value('kode_bayar', $row->kode_bayar),
 		'bebas_pustaka' => set_value('bebas_pustaka', $row->bebas_pustaka),
 		'bebas_smt' => set_value('bebas_smt', $row->bebas_smt),
-		'tgl_daftar' => set_value('tgl_daftar', $row->tgl_daftar),
+    'tgl_daftar' => set_value('tgl_daftar', $row->tgl_daftar),
+		'tgl_maju' => set_value('tgl_maju', $row->tgl_maju),
 	    );
       $data['site_title'] = 'SIPAD';
       $data['title_page'] = 'Olah Data Maju Proposal';
@@ -124,7 +127,8 @@ class Proposal_maju extends CI_Controller
 		'kode_bayar' => $this->input->post('kode_bayar',TRUE),
 		'bebas_pustaka' => $this->input->post('bebas_pustaka',TRUE),
 		'bebas_smt' => $this->input->post('bebas_smt',TRUE),
-		'tgl_daftar' => $this->input->post('tgl_daftar',TRUE),
+    'tgl_daftar' => $this->input->post('tgl_daftar',TRUE),
+		'tgl_maju' => $this->input->post('tgl_maju',TRUE)
 	    );
 
             $this->Proposal_maju_model->update($this->input->post('id_proposal_maju', TRUE), $data);
@@ -153,7 +157,8 @@ class Proposal_maju extends CI_Controller
 	$this->form_validation->set_rules('kode_bayar', 'kode bayar', 'trim|required');
 	$this->form_validation->set_rules('bebas_pustaka', 'bebas pustaka', 'trim|required');
 	$this->form_validation->set_rules('bebas_smt', 'bebas smt', 'trim|required');
-	$this->form_validation->set_rules('tgl_daftar', 'tgl daftar', 'trim|required');
+  $this->form_validation->set_rules('tgl_daftar', 'tgl daftar', 'trim|required');
+	$this->form_validation->set_rules('tgl_maju', 'tgl maju', 'trim|required');
 
 	$this->form_validation->set_rules('id_proposal_maju', 'id_proposal_maju', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
@@ -229,5 +234,25 @@ class Proposal_maju extends CI_Controller
         );
       }
       echo json_encode($temps);
+    }
+
+    public function cetak_surat($a)
+    {
+      $data_mhs = $this->App_model->get_query("SELECT * FROM v_proposal_maju WHERE id_proposal_maju='".$a."'")->row();
+      $data_penguji = $this->App_model->get_query("SELECT * FROM v_dosen_penguji WHERE id_proposal_maju='".$a."'")->result();
+
+      $data['data_mhs'] = $data_mhs;
+      $data['data_penguji'] = $data_penguji;
+
+      $data['assign_css'] = 'proposal_maju/css/app.css';
+      $data['assign_js'] = 'proposal_maju/js/index.js';
+      load_pdf('proposal_maju/surat_proposal', $data);
+
+      $this->load->library('fpdf_gen');
+      $html = $this->output->get_output();
+      $this->dompdf->set_paper('Legal', 'potrait');
+      $this->dompdf->load_html($html);
+      $this->dompdf->render();
+      $this->dompdf->stream(date('D-M-Y').$id_kur.".pdf",array('Attachment'=>0));
     }
 }
