@@ -27,8 +27,8 @@
                 <th>Kode Pembayaran</th>
                 <th>Nama Kurikulum</th>
                 <th>Periode</th>
-                <th>Konfirmasi BAAK</th>
-                <th>Konfirmasi Keuangan</th>
+                <th>BAAK</th>
+                <th>Kartu Ujian</th>
                 <th><center>Action</center></th>
             </tr>
         </thead>
@@ -45,12 +45,15 @@
                 <td><?php echo  $key->nm_kurikulum ?></td>
                 <td><?php echo  $key->ta ?></td>
                 <td><?php echo  $key->status_ambil ?></td>
-                <td><?php echo  $key->status_cek ?></td>
+                <td>
+                  <a href="<?php echo site_url('data_krs/cetak_uts/'.$key->nim.'/'.$key->ta.'/'.$key->id_krs) ?>"><i class='fa fa-archive'> UTS</i></a> |
+                  <a href="<?php echo site_url('data_krs/cetak_uas/'.$key->nim.'/'.$key->ta.'/'.$key->id_krs) ?>"><i class='fa fa-archive'> UAS</i></a>
+                </td>
                 <td style="text-align:center" width="200px">
                   <a href="<?php echo site_url('data_krs/konfirmasi/'.$key->nim.'/'.$key->kode_pembayaran) ?>"><i class='fa fa-pencil-square-o'></i></a> |
                   <a href="<?php echo site_url('data_krs/proses_krs/'.$key->nim.'/'.$key->ta) ?>"><i class='fa fa-gears'> </i></a>
                   |
-                  <a href="<?php echo site_url('data_krs/cetak_krs/'.$key->nim.'/'.$key->ta.'/'.$key->id_krs) ?>"><i class='fa fa-archive'> Cetak </i></a>
+                  <a href="<?php echo site_url('data_krs/cetak_krs/'.$key->nim.'/'.$key->ta.'/'.$key->id_krs) ?>"><i class='fa fa-archive'> Cetak Krs </i></a>
                 </td>
               </tr>
             <?php

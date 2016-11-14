@@ -44,11 +44,12 @@ class Index extends CI_Controller
       'ang_2011' => $count_mhs_l_5
     );
 
+    $dosen = $this->app_model->get_query("SELECT * FROM tb_dosen WHERE nidn='".$this->session->userdata('nidn')."'")->row();
 
     $data['mhs_aktif'] = $data_angkatan;
     $data['mhs_lulus'] = $data_lulus;
     $data['site_title'] = 'SIDOSEN';
-    $data['title_page'] = 'SELAMAT DATANG DI SIDOSEN || SISTEM INFORMASI DOSEN ADHI GUNA';
+    $data['title_page'] = 'SELAMAT DATANG <b>'.$dosen->nm_dosen.'</b> || SISTEM INFORMASI DOSEN ADHI GUNA';
     $data['assign_js'] = '';
     load_view('beranda/beranda', $data);
   }

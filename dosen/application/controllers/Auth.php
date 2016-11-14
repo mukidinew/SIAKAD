@@ -31,8 +31,8 @@ class Auth extends CI_Controller {
 	public function login()
 	{
 		if ($this->input->post()) {
-			$this->form_validation->set_rules('username','Username Feeder','trim|required');
-			$this->form_validation->set_rules('password','Password Feeder','required');
+			$this->form_validation->set_rules('username','Username Anda','trim|required');
+			$this->form_validation->set_rules('password','Password Anda','required');
 			$this->form_validation->set_rules('nidn','nidn','trim|required');
 
 			if ($this->form_validation->run() == TRUE) {
@@ -54,7 +54,7 @@ class Auth extends CI_Controller {
 						$this->nama = $key->nm_dosen;
 					}
 
-					$session_prodi = array('login' => TRUE,
+					$session = array('login' => TRUE,
 										'mode' => "on",
 										 'url' => base_url(),
 									 'user' => $this->user,
@@ -64,7 +64,7 @@ class Auth extends CI_Controller {
 						);
 
 						$this->session->sess_expiration = '1800'; //session timeout 15 minute
-						$this->session->set_userdata($session_prodi);
+						$this->session->set_userdata($session);
 
 						if($this->level == 'dosen'){
 							redirect('Index');

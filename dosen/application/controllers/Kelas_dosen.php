@@ -30,7 +30,7 @@ class Kelas_dosen extends CI_Controller
         );
 
         $data['site_title'] = 'SIMALA';
-        $data['title_page'] = 'Olah Data Mengajar Dosen';
+        $data['title_page'] = 'Olah Data Mengajar Anda';
         $data['assign_js'] = 'kelas_dosen/js/index.js';
         load_view('kelas_dosen/tb_kelas_dosen_list', $data);
     }

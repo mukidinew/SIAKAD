@@ -333,4 +333,19 @@ class Data_krs extends CI_Controller
       }
     }
 
+    public function cetak_uas($nim,$ta,$id_krs)
+    {
+      # code...
+    }
+
+    public function cetak_uts($nim,$ta,$id_krs)
+    {
+      
+      // $this->load->library('fpdf_gen');
+      // $html = $this->output->get_output();
+      // $this->dompdf->set_paper('Legal', 'potrait');
+      // $this->dompdf->load_html($html);
+      // $this->dompdf->render();
+      // $this->dompdf->stream(date('D-M-Y').$id_kur.".pdf",array('Attachment'=>0));
+    }
 }

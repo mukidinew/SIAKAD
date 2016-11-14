@@ -247,7 +247,6 @@ class Proposal_maju extends CI_Controller
       $data['assign_css'] = 'proposal_maju/css/app.css';
       $data['assign_js'] = 'proposal_maju/js/index.js';
       load_pdf('proposal_maju/surat_proposal', $data);
-
       $this->load->library('fpdf_gen');
       $html = $this->output->get_output();
       $this->dompdf->set_paper('Legal', 'potrait');

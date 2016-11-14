@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div style="margin-top: 40px;">
+  <div style="margin-top: 70px;">
     <div class="row">
         <div class="col-md-12 laporan" >
           <p>
@@ -70,52 +70,127 @@
                  <li>
                    Surat Keputusan Ketua YPPM Adhi Guna No. 009/YPPM-AG/KPTS/XI/2015 Tentang Pengangkatan Ketua STMIK Adhi Guna Periode 2015-2019
                  </li>
+                 <?php if ($data_mhs->id_prodi='55201'): ?>
+                 <li>
+                   Surat Keputusan Direktur Jendral Pendidikan Tinggi No. 3316/D/T/K-IX/2010 Tentang Perpanjangan Izin Program Studi Teknik Informatika STMIK Adhi Guna
+                 </li>
+                 <?php else: ?>
+                 <li>
+                   Surat Keputusan Direktur Jendral Pendidikan Tinggi No. 3422/D/T/K-IX/2010 Tentang Perpanjangan Izin Program Studi Sistem Informasi STMIK Adhi Guna
+                 </li>
+                 <?php endif; ?>
                </ol>
+            </td>
+          </tr>
+          <tr>
+            <td width="10%">Memperhatikan </td>
+            <td>:</td>
+            <td width="90%">
+               <ol>
+                 <li>
+                   Statuta STMIK Adhi Guna
+                 </li>
+                 <li>
+                   Pedoman Akademik STMIK Adhi Guna
+                 </li>
+               </ol>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Menetapkan
+            </td>
+          </tr>
+          <tr>
+            <td width="10%">Pertama </td>
+            <td>:</td>
+            <td width="90%">
+               Menunjuk, mengangkat dan menetapkan nama Tim Penguji Ujian Proposal Sarjana Strata Satu (S1) Sebagaiamana tercantum pada Lampiran 1 Surat Keputusan ini.
+            </td>
+          </tr>
+          <tr>
+            <td width="10%">Kedua </td>
+            <td>:</td>
+            <td width="90%">
+              Bahwa Ujian Proposal Sarjana Strata Satu (S1) ditetapkan dan dilaksanakan pada <b>Tanggal : <?php echo $data_mhs->tgl_maju ?></b>
+            </td>
+          </tr>
+          <tr>
+            <td width="10%">Ketiga </td>
+            <td>:</td>
+            <td width="90%">
+               Keputusan ini berlaku sejak tanggal ditetapkan apabila ternyata terdapat kekeliruan dalam penetapan ini, akan disempurnakan kembali sebagai mana mestinya
             </td>
           </tr>
         </tbody>
       </table>
       <br>
+      <br>
+      <?php
+      $t=time();
+      $date_sekarang = date("d-m-Y",$t);
+       ?>
       <table class="ttd_laporan">
         <tbody>
           <tr>
-            <td colspan="4" width="60%"></td>
-            <td>Palu, 04 Juni 2016</td>
+            <td colspan="4" width="50%"></td>
+            <td>Ditetapkan di</td>
+            <td>:</td>
+            <td width="30%">Palu</td>
           </tr>
           <tr>
-            <td colspan="4"></td>
-            <td>a.n KETUA STMIK ADHI GUNA</td>
+            <td colspan="4" width="50%"></td>
+            <td>Pada Tanggal</td>
+            <td>:</td>
+            <td><?php echo $date_sekarang ?></td>
           </tr>
           <tr>
-            <td colspan="4"></td>
-            <td>KASUBAG PENDIDIKAN DAN PENGAJARAN</td>
+            <td colspan="4" width="50%"></td>
+            <td>Ketua,</td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <td colspan="4"></td>
-            <td><br></td>
+            <td colspan="4" width="50%"></td>
+            <td><br><br><br><br></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <td colspan="4"></td>
-            <td><br></td>
+            <td colspan="4" width="50%"></td>
+            <td colspan="3">
+              <b><u>Mus Aidah, S.Pd,. MM</u></b>
+            </td>
           </tr>
           <tr>
-            <td colspan="4"></td>
-            <td><br></td>
-          </tr>
-          <tr>
-            <td colspan="4"></td>
-            <td><br></td>
-          </tr>
-          <tr>
-            <td colspan="4"></td>
-            <td><u>RENI NURDIN, S.Sos</u></td>
-          </tr>
-          <tr>
-            <td colspan="4"></td>
-            <td>NIK. 140 201 015</td>
+            <td colspan="4" width="50%"></td>
+            <td colspan="3">
+              NIK. 140 201 023
+            </td>
           </tr>
         </tbody>
       </table>
+      <div class="">
+        <small><i><u>Tembusan :</u></i></small>
+        <small>
+          <i>
+            <ol>
+              <li>Wakil Ketua 1 Bid. Akademik</li>
+              <li>
+                Ketua Program Studi
+                <?php if ($data_mhs->id_prodi='55201'): ?>
+                  Teknik Informatika
+                <?php else: ?>
+                  Sistem Informasi
+                <?php endif; ?>
+              </li>
+              <li>Kepala BAAK</li>
+              <li>Masing-masing yang bersangkutan untuk dilaksanakan</li>
+              <li>Arsip</li>
+            </ol>
+          </i>
+        </small>
+      </div>
     </div>
   </div>
 </div>

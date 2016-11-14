@@ -77,7 +77,7 @@
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="<?php echo base_url('kurikulum.html') ?>"><i class="fa fa-sticky-note"></i> Kurikulum</a></li>
                     <li><a href="<?php echo base_url('kelas_kuliah.html') ?>"><i class="fa fa-university"></i> Kelas Kuliah</a></li>
-                    <li><a href="<?php echo base_url('kelas_dosen.html') ?>"><i class="fa fa-briefcase"></i> Kelas Dosen</a></li>
+                    <li><a href="<?php echo base_url('kelas_dosen.html') ?>"><i class="fa fa-briefcase"></i> Kelas Anda</a></li>
                     <li><a href="<?php echo base_url('nilai.html') ?>"><i class="fa fa-tasks"></i> Nilai</a></li>
                   </ul>
                 </li>
@@ -87,6 +87,14 @@
                     <li><a href="<?php echo base_url('#') ?>"><i class="fa fa-sticky-note"></i> Harian</a></li>
                     <li><a href="<?php echo base_url('#') ?>"><i class="fa fa-sticky-note"></i> Bulanan</a></li>
                     <li><a href="<?php echo base_url('#') ?>"><i class="fa fa-sticky-note"></i> Semester</a></li>
+                  </ul>
+                </li>
+
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="	fa fa-bar-chart"></i> Perwalian<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="<?php echo base_url('#') ?>"><i class="fa fa-sticky-note"></i> Data Dosen Wali</a></li>
+                    <li><a href="<?php echo base_url('#') ?>"><i class="fa fa-sticky-note"></i> Perwalian Anda</a></li>
                   </ul>
                 </li>
             </ul>

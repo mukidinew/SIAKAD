@@ -16,7 +16,7 @@ class Sync extends CI_Controller
         private $npsn;
         private $ws_a;
 
-        private $password_f='stm1k788688ADH1gvn@';
+        private $password_f='78stm1k093111ADH1gun@86';
       	private $username_f='093111';
         // private $password_f='';
       	// private $username_f='';
@@ -45,7 +45,7 @@ class Sync extends CI_Controller
           $setting = $this->app_model->get_query("SELECT * FROM tb_setting WHERE role='A'")->result();
           foreach ($setting as $key) {
       			$this->dir_ws = $key->link;
-            $this->password_f=base64_decode($key->pass_feed);
+            $this->password_f="78stm1k093111ADH1gun@86";
             $this->kode_feed=base64_decode($key->kode_feed);
       			$this->host_ws = parse_url($this->dir_ws, PHP_URL_HOST);
       			$this->port_ws = parse_url($this->dir_ws, PHP_URL_PORT)==''?80:parse_url($this->dir_ws, PHP_URL_PORT);
@@ -59,7 +59,6 @@ class Sync extends CI_Controller
     }
     public function index()
     {
-
       $count_mhs = $this->app_model->total_rows("v_sync_mhs");
       $count_mhs_lulus = $this->app_model->total_rows("v_sync_mhs_lulus");
       $count_mk_kur = $this->app_model->total_rows("v_sync_mk_kurikulum");

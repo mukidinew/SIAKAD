@@ -101,6 +101,13 @@
                     <li><a href="<?php echo base_url('status_mhs.html') ?>"><i class="fa fa-database"></i> Status Mahasiswa</a></li>
                   </ul>
                 </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="	fa fa-bar-chart"></i> Perwalian<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="<?php echo base_url('dosen_wali') ?>"><i class="fa fa-sticky-note"></i> Data Dosen Wali</a></li>
+                    <li><a href="<?php echo base_url('mhs_wali') ?>"><i class="fa fa-sticky-note"></i> Data Dosen Wali Mahasiswa</a></li>
+                  </ul>
+                </li>
             </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">

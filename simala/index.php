@@ -73,10 +73,13 @@ switch (ENVIRONMENT)
 	break;
 
 	case 'testing':
+		ini_set('memory_limit', '-1'); //nanti centangnya di buka kalo sdh export data
+		ini_set('max_execution_time', 4000); //nanti centangnya di buka kalo sdh export data
+		break;
 	case 'production':
 		ini_set('display_errors', 0);
-		// ini_set('memory_limit', '-1'); //nanti centangnya di buka kalo sdh export data
-		// ini_set('max_execution_time', 4000); //nanti centangnya di buka kalo sdh export data
+		ini_set('memory_limit', '-1'); //nanti centangnya di buka kalo sdh export data
+		ini_set('max_execution_time', 4000); //nanti centangnya di buka kalo sdh export data
 		if (version_compare(PHP_VERSION, '5.3', '>='))
 		{
 			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
