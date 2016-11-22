@@ -34,7 +34,8 @@ class Proposal_maju extends CI_Controller
 		'id_proposal' => $row->id_proposal,
 		'kode_bayar' => $row->kode_bayar,
 		'bebas_pustaka' => $row->bebas_pustaka,
-		'bebas_smt' => $row->bebas_smt,
+    'bebas_smt' => $row->bebas_smt,
+		'status_kliring' => $row->status_kliring,
 		'tgl_daftar' => $row->tgl_daftar,
 	    );
       $data['site_title'] = 'SIPAD';
@@ -57,7 +58,8 @@ class Proposal_maju extends CI_Controller
         	    'id_proposal' => set_value('id_proposal'),
         	    'kode_bayar' => set_value('kode_bayar'),
         	    'bebas_pustaka' => set_value('bebas_pustaka'),
-        	    'bebas_smt' => set_value('bebas_smt'),
+              'bebas_smt' => set_value('bebas_smt'),
+        	    'status_kliring' => set_value('status_kliring'),
               'tgl_daftar' => set_value('tgl_daftar'),
         	    'tgl_maju' => set_value('tgl_maju'),
         	);
@@ -79,6 +81,7 @@ class Proposal_maju extends CI_Controller
 		'kode_bayar' => $this->input->post('kode_bayar',TRUE),
 		'bebas_pustaka' => $this->input->post('bebas_pustaka',TRUE),
 		'bebas_smt' => $this->input->post('bebas_smt',TRUE),
+    'status_kliring' => set_value('status_kliring', TRUE),
     'tgl_daftar' => $this->input->post('tgl_daftar',TRUE),
 		'tgl_maju' => $this->input->post('tgl_maju',TRUE),
 	    );
@@ -102,6 +105,7 @@ class Proposal_maju extends CI_Controller
 		'kode_bayar' => set_value('kode_bayar', $row->kode_bayar),
 		'bebas_pustaka' => set_value('bebas_pustaka', $row->bebas_pustaka),
 		'bebas_smt' => set_value('bebas_smt', $row->bebas_smt),
+    'status_kliring' => set_value('status_kliring',$row->status_kliring),
     'tgl_daftar' => set_value('tgl_daftar', $row->tgl_daftar),
 		'tgl_maju' => set_value('tgl_maju', $row->tgl_maju),
 	    );
@@ -127,6 +131,7 @@ class Proposal_maju extends CI_Controller
 		'kode_bayar' => $this->input->post('kode_bayar',TRUE),
 		'bebas_pustaka' => $this->input->post('bebas_pustaka',TRUE),
 		'bebas_smt' => $this->input->post('bebas_smt',TRUE),
+    'status_kliring' => set_value('status_kliring', TRUE),
     'tgl_daftar' => $this->input->post('tgl_daftar',TRUE),
 		'tgl_maju' => $this->input->post('tgl_maju',TRUE)
 	    );
@@ -156,9 +161,10 @@ class Proposal_maju extends CI_Controller
 	$this->form_validation->set_rules('id_proposal', 'id proposal', 'trim|required');
 	$this->form_validation->set_rules('kode_bayar', 'kode bayar', 'trim|required');
 	$this->form_validation->set_rules('bebas_pustaka', 'bebas pustaka', 'trim|required');
-	$this->form_validation->set_rules('bebas_smt', 'bebas smt', 'trim|required');
+  $this->form_validation->set_rules('bebas_smt', 'bebas smt', 'trim|required');
+	$this->form_validation->set_rules('status_kliring', 'status kliring', 'trim|required');
   $this->form_validation->set_rules('tgl_daftar', 'tgl daftar', 'trim|required');
-	$this->form_validation->set_rules('tgl_maju', 'tgl maju', 'trim|required');
+	// $this->form_validation->set_rules('tgl_maju', 'tgl maju', 'trim|required');
 
 	$this->form_validation->set_rules('id_proposal_maju', 'id_proposal_maju', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
@@ -218,10 +224,10 @@ class Proposal_maju extends CI_Controller
       $temp_cari = $cari==''?'':$cari;
       $page = $this->input->post('page');
       if ($page=='') {
-        $prodi = $this->App_model->get_query("SELECT * FROM v_list_proposal WHERE id_prodi='". $this->session->userdata('level_prodi') ."'")->result();
+        $prodi = $this->App_model->get_query("SELECT * FROM v_list_proposal")->result();
       }
       else {
-        $prodi = $this->App_model->get_query("SELECT * FROM v_list_proposal WHERE id_prodi='". $this->session->userdata('level_prodi') ."' AND  (nim LIKE '%".$cari."%' OR nm_mhs LIKE '%".$cari."%')")->result();
+        $prodi = $this->App_model->get_query("SELECT * FROM v_list_proposal WHERE nim LIKE '%".$cari."%' OR nm_mhs LIKE '%".$cari."%'")->result();
       }
 
       $temps = array();

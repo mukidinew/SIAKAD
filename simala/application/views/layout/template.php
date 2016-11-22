@@ -109,6 +109,12 @@
                     <li><a href="<?php echo base_url('mhs_wali') ?>"><i class="fa fa-sticky-note"></i> Data Dosen Wali Mahasiswa</a></li>
                   </ul>
                 </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="	fa fa-bar-chart"></i> Proposal<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="<?php echo base_url('proposal_maju') ?>"><i class="fa fa-sticky-note"></i> Daftar Proposal</a></li>
+                  </ul>
+                </li>
             </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">

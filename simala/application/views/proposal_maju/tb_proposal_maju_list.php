@@ -26,9 +26,8 @@
                   <!-- <th>Kode Bayar</th> -->
                   <th>Bebas Pustaka</th>
                   <th>Bebas Smt</th>
+                  <th>Status Kliring</th>
                   <th>Tgl Daftar</th>
-                  <th>Tgl Maju</th>
-                  <th>Penguji</th>
                   <th>Action</th>
               </tr>
           </thead>
@@ -45,11 +44,8 @@
                 <!-- <td><?php echo $proposal_maju->kode_bayar ?></td> -->
                 <td><?php echo $proposal_maju->bebas_pustaka ?></td>
                 <td><?php echo $proposal_maju->bebas_smt ?></td>
+                <td><?php echo $proposal_maju->status_kliring ?></td>
                 <td><?php echo $proposal_maju->tgl_daftar ?></td>
-                <td><?php echo $proposal_maju->tgl_maju ?></td>
-                <td align="center">
-                  <a href="<?php echo site_url('dosen_penguji/get_penguji/'.$proposal_maju->id_proposal_maju.'/'.$proposal_maju->nim.'/'.$proposal_maju->nidn_pembimbing_1.'/'.$proposal_maju->nidn_pembimbing_2) ?>" target="_blank"><i class='fa fa-gears'> Penguji</i></a>
-                </td>
                 <td style="text-align:center" width="200px">
                   <a href='<?php echo site_url('proposal_maju/read/'.$proposal_maju->id_proposal_maju) ?>'><i class='fa fa-eye'></i></a> |
                   <a href='<?php echo site_url('proposal_maju/update/'.$proposal_maju->id_proposal_maju) ?>'><i class='fa fa-pencil-square-o'></i></a> |

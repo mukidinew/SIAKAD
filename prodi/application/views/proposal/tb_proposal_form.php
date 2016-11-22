@@ -48,11 +48,11 @@
         </div>
         <div class="form-group">
           <label for="datetime">Tgl Daftar <?php echo form_error('tgl_daftar') ?></label>
-          <input type="text" class="form-control" name="tgl_daftar" id="tgl_daftar" placeholder="Tgl Daftar" value="<?php echo $tgl_daftar; ?>" />
+          <input type="text" class="form-control datepicker" name="tgl_daftar" id="tgl_daftar" placeholder="Tgl Daftar" value="<?php echo $tgl_daftar; ?>" />
         </div>
         <div class="form-group">
           <label for="datetime">Tgl Kadaluarsa <?php echo form_error('tgl_kadaluarsa') ?></label>
-          <input type="text" class="form-control" name="tgl_kadaluarsa" id="tgl_kadaluarsa" placeholder="Tgl Kadaluarsa" value="<?php echo $tgl_kadaluarsa; ?>" />
+          <input type="text" class="form-control datepicker" name="tgl_kadaluarsa" id="tgl_kadaluarsa" placeholder="Tgl Kadaluarsa" value="<?php echo $tgl_kadaluarsa; ?>" />
         </div>
         <input type="hidden" name="id_mhs_proposal" value="<?php echo $id_mhs_proposal; ?>" />
         <button type="submit" class="btn btn-primary"><?php echo $button ?></button>

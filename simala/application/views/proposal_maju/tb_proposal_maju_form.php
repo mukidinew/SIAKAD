@@ -34,21 +34,30 @@
                 <!-- <input type="text" class="form-control" name="bebas_pustaka" id="bebas_pustaka" placeholder="Bebas Pustaka" value="<?php echo $bebas_pustaka; ?>" /> -->
             </div>
           <div class="form-group">
-                <label for="enum">Bebas Semester <?php echo form_error('bebas_smt') ?></label>
-                <select class="form-control" name="bebas_smt" id="bebas_smt">
-                  <option value="N">N</option>
-                  <option value="Y">Y</option>
-                </select>
-                <!-- <input type="text" class="form-control" name="bebas_smt" id="bebas_smt" placeholder="Bebas Smt" value="<?php echo $bebas_smt; ?>" /> -->
-            </div>
+              <label for="enum">Bebas Semester <?php echo form_error('bebas_smt') ?></label>
+              <select class="form-control" name="bebas_smt" id="bebas_smt">
+                <option value="N">N</option>
+                <option value="Y">Y</option>
+              </select>
+              <!-- <input type="text" class="form-control" name="bebas_smt" id="bebas_smt" placeholder="Bebas Smt" value="<?php echo $bebas_smt; ?>" /> -->
+          </div>
+          <div class="form-group">
+              <label for="enum">Kliring Nilai <?php echo form_error('status_kliring') ?></label>
+              <select class="form-control" name="status_kliring" id="status_kliring">
+                <option value="N">N</option>
+                <option value="Y">Y</option>
+              </select>
+              <!-- <input type="text" class="form-control" name="status_kliring" id="status_kliring" placeholder="Kliring Nilai" value="<?php echo $status_kliring; ?>" /> -->
+          </div>
+
           <div class="form-group">
                 <label for="datetime">Tanggal Daftar <?php echo form_error('tgl_daftar') ?></label>
                 <input type="text" class="form-control datepicker" name="tgl_daftar" id="tgl_daftar" placeholder="Tgl Daftar" value="<?php echo $tgl_daftar; ?>" />
             </div>
-            <div class="form-group">
-                  <label for="datetime">Tanggal Maju <?php echo form_error('tgl_maju') ?></label>
-                  <input type="text" class="form-control datepicker" name="tgl_maju" id="tgl_maju" placeholder="Tgl maju" value="<?php echo $tgl_maju; ?>" />
-              </div>
+          <!-- <div class="form-group">
+            <label for="datetime">Tanggal Maju <?php echo form_error('tgl_maju') ?></label>
+            <input type="text" class="form-control datepicker" name="tgl_maju" id="tgl_maju" placeholder="Tgl maju" value="<?php echo $tgl_maju; ?>" />
+          </div> -->
           <input type="hidden" name="id_proposal_maju" value="<?php echo $id_proposal_maju; ?>" />
           <button type="submit" class="btn btn-primary"><?php echo $button ?></button>
           <a href="<?php echo site_url('proposal_maju') ?>" class="btn btn-default">Cancel</a>

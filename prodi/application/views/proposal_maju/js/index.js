@@ -1,6 +1,6 @@
 <script type="text/javascript">
     $(document).ready(function () {
-      $(".tb_aktif").dataTable();
+      $(".table").dataTable();
 
       $('#id_proposal').select2({
         placeholder: "Masukan Kata Kunci Mahasiswa Proposal Nama | NIM | Judul",
