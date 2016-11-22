@@ -1,0 +1,40 @@
+<style>
+th,td,p,div,b ... {margin:0;padding:0}
+html{
+  margin:50px 50px;
+  font-size: 10;
+}
+
+
+table.laporan {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 10;
+}
+table.laporan td,
+table.laporan th {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+table.id_laporan {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 10;
+}
+table.id_laporan td,
+table.id_laporan th {
+  border: 0px solid black;
+  align: center;
+}
+
+table.ttd_laporan {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 10;
+}
+table.ttd_laporan td,
+table.ttd_laporan th {
+  border: 0px solid black;
+}
+</style>
