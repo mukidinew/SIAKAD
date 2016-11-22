@@ -19,7 +19,10 @@ $(document).ready( function() {
 			if( log ) alert(log);
 		}
 	});
-	
+	$('.datepicker').datepicker({
+      format: 'yyyy-mm-dd',
+      startDate: '-3d'
+  });
 });
 
 function stats(x) {

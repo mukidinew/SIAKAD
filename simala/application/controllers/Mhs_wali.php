@@ -16,21 +16,22 @@ class Mhs_wali extends CI_Controller
         }
         else{
           $this->load->model('Mhs_wali_model');
-          $this->load->model('App_model');
+          $this->load->model('App_model','app_model');
           $this->load->library('form_validation');
         }
     }
 
     public function index()
     {
-        $mhs_wali = $this->Mhs_wali_model->get_all();
+      //$mhs_wali = $this->Mhs_wali_model->get_all();
+        $mhs_wali = $this->app_model->get_query("SELECT * FROM v_mhs_wali")->result();
 
         $data = array(
             'mhs_wali_data' => $mhs_wali
         );
         $data['site_title'] = 'SIMALA';
     		$data['title_page'] = 'Olah Data Perwalian Mahasiswa';
-    		$data['assign_js'] = 'dosen_wali/js/index.js';
+    		$data['assign_js'] = 'mhs_wali/js/index.js';
         load_view('mhs_wali/tb_mhs_wali_list', $data);
     }
 
@@ -45,7 +46,7 @@ class Mhs_wali extends CI_Controller
           	);
             $data['site_title'] = 'SIMALA';
             $data['title_page'] = 'Olah Data Perwalian Mahasiswa';
-            $data['assign_js'] = 'dosen_wali/js/index.js';
+            $data['assign_js'] = 'mhs_wali/js/index.js';
             load_view('mhs_wali/tb_mhs_wali_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
@@ -64,7 +65,7 @@ class Mhs_wali extends CI_Controller
       	);
         $data['site_title'] = 'SIMALA';
     		$data['title_page'] = 'Olah Data Perwalian Mahasiswa';
-    		$data['assign_js'] = 'dosen_wali/js/index.js';
+    		$data['assign_js'] = 'mhs_wali/js/index.js';
         load_view('mhs_wali/tb_mhs_wali_form', $data);
     }
 
@@ -100,7 +101,7 @@ class Mhs_wali extends CI_Controller
             );
             $data['site_title'] = 'SIMALA';
         		$data['title_page'] = 'Olah Data Perwalian Mahasiswa';
-        		$data['assign_js'] = 'dosen_wali/js/index.js';
+        		$data['assign_js'] = 'mhs_wali/js/index.js';
             load_view('mhs_wali/tb_mhs_wali_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
@@ -142,11 +143,33 @@ class Mhs_wali extends CI_Controller
 
     public function _rules()
     {
-	$this->form_validation->set_rules('id_dosen_wali', 'id dosen wali', 'trim|required');
-	$this->form_validation->set_rules('id_mhs', 'id mhs', 'trim|required');
+    	$this->form_validation->set_rules('id_dosen_wali', 'id dosen wali', 'trim|required');
+    	$this->form_validation->set_rules('id_mhs', 'id mhs', 'trim|required');
 
-	$this->form_validation->set_rules('id_mhs_wali', 'id_mhs_wali', 'trim');
-	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+    	$this->form_validation->set_rules('id_mhs_wali', 'id_mhs_wali', 'trim');
+    	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+    }
+
+    public function getDosen()
+    {
+      $cari = $this->input->post('q');
+      $temp_cari = $cari==''?'':$cari;
+      $page = $this->input->post('page');
+      if ($page=='') {
+        $dosen_wali = $this->app_model->get_query("SELECT * FROM v_dosen_wali")->result();
+      }
+      else {
+        $dosen_wali = $this->app_model->get_query("SELECT * FROM v_dosen_wali WHERE id_dosen='".$cari."' OR nm_dosen LIKE '%".$cari."%'")->result();
+      }
+      $temps = array();
+      foreach ($dosen_wali as $key) {
+        $temps[] = array(
+          'id_dosen_wali' => $key->id_dosen_wali,
+          'id_dosen' => $key->id_dosen,
+          'nm_dosen' => $key->nm_dosen
+        );
+      }
+      echo json_encode($temps);
     }
 
 }

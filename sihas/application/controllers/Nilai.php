@@ -16,14 +16,14 @@ class Nilai extends CI_Controller
         }
         else {
           $this->load->model('Nilai_model');
-          $this->load->model('App_model','app_model');
+          $this->load->model('App_model');
           $this->load->library('form_validation');
         }
     }
 
     public function index()
     {
-        $nilai = $this->app_model->get_all_view_nilai();
+        $nilai = $this->App_model->get_query("SELECT * FROM v_nilai WHERE nim='".$this->session->userdata('nim')."'")->result();
 
         $data = array(
             'nilai_data' => $nilai

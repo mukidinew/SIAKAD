@@ -24,12 +24,14 @@ class Index extends CI_Controller
     $count_mhs_3 = $this->app_model->total_rows_where("v_mhs_aktif","smt_masuk","2013");
     $count_mhs_4 = $this->app_model->total_rows_where("v_mhs_aktif","smt_masuk","20141");
     $count_mhs_5 = $this->app_model->total_rows_where("v_mhs_aktif","smt_masuk","20151");
+    $count_mhs_6 = $this->app_model->total_rows_where("v_mhs_aktif","smt_masuk","20161");
     $data_angkatan = array(
       'ang_2011' => $count_mhs_1,
       'ang_2012' => $count_mhs_2,
       'ang_2013' => $count_mhs_3,
       'ang_2014' => $count_mhs_4,
       'ang_2015' => $count_mhs_5,
+      'ang_2016' => $count_mhs_6,
     );
     $count_mhs_l_1 = $this->app_model->total_rows_where("v_mhs_lulus","smt_masuk","20071");
     $count_mhs_l_2 = $this->app_model->total_rows_where("v_mhs_lulus","smt_masuk","20081");
@@ -54,7 +56,7 @@ class Index extends CI_Controller
     $count_data_krs = $this->app_model->total_rows("v_sync_data_krs");
     $count_kurikulum = $this->app_model->total_rows_where("tb_kurikulum","status_upload","N");
     $count_mata_kuliah = $this->app_model->total_rows_where("tb_mata_kuliah","status_upload","N");
-    
+
 
     $data['count_mhs'] =$count_mhs ;
     $data['count_kurikulum'] =$count_kurikulum ;

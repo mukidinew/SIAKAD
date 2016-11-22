@@ -23,11 +23,13 @@
                   <th>NIM</th>
                   <th>Nama Mahasiswa</th>
                   <th>Kode MK</th>
+                  <th>SKS</th>
                   <th>Mata Kuliah</th>
                   <th>Periode</th>
                   <th>Nama Kelas</th>
                   <th>Nilai Angka</th>
                   <th>Nilai Huruf</th>
+                  <th>Analisis</th>
               </tr>
           </thead>
           <tbody>
@@ -41,11 +43,26 @@
                   <td><?php echo $nilai->nim ?></td>
                   <td><?php echo $nilai->nm_mhs ?></td>
                   <td><?php echo $nilai->kode_mk ?></td>
+                  <td><?php echo $nilai->sks ?></td>
                   <td><?php echo $nilai->nm_mk ?></td>
                   <td><?php echo $nilai->ta ?></td>
                   <td><?php echo $nilai->nm_kelas?></td>
                   <td><?php echo $nilai->nilai_angka ?></td>
                   <td><?php echo $nilai->nilai_huruf ?></td>
+                  <td>
+                    <?php
+                    if (($nilai->nilai_angka >= 65 && $nilai->nilai_angka <= 74) && $nilai->sks == 2 ) {
+                      ?>
+                      <span class="label label-warning">Warning</span>
+                      <?php
+                    } else {
+                      ?>
+                      <span class="label label-success">Great</span>
+                      <?php
+                    }
+
+                    ?>
+                  </td>
                 </tr>
               <?php
           }

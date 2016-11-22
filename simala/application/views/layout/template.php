@@ -20,6 +20,7 @@
     <link href="<?php echo base_url(); ?>assets/css/dropdowns-enhancement.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/select2.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/select2-bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/datepicker.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/app.css" rel="stylesheet">
     <link rel="shortcut icon" href="wsclient.ico" title="Favicon" />
 
@@ -150,6 +151,7 @@
     <script src="<?php echo base_url();?>assets/js/jquery.form.js"></script>
     <script src="<?php echo base_url();?>assets/js/app.js"></script>
     <script src="<?php echo base_url();?>assets/js/bootstrap-typeahead.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/bootstrap-datepicker.js"></script>
     <?php
         //echo $assign_js;
         if ($assign_js != '') {

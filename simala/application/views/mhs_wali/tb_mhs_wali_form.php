@@ -10,11 +10,11 @@
     <div class="col-md-8">
       <form action="<?php echo $action; ?>" method="post">
         <div class="form-group">
-          <label for="int">Id Dosen Wali <?php echo form_error('id_dosen_wali') ?></label>
-          <input type="text" class="form-control" name="id_dosen_wali" id="id_dosen_wali" placeholder="Id Dosen Wali" value="<?php echo $id_dosen_wali; ?>" />
+          <label >Dosen Wali <?php echo form_error('id_dosen_wali') ?></label>
+          <select class="form-control select2" name="id_dosen_wali" id="id_dosen_wali"></select>
         </div>
         <div class="form-group">
-          <label for="varchar">Id Mhs <?php echo form_error('id_mhs') ?></label>
+          <label for="varchar">NIM <?php echo form_error('id_mhs') ?></label>
           <input type="text" class="form-control" name="id_mhs" id="id_mhs" placeholder="Id Mhs" value="<?php echo $id_mhs; ?>" />
         </div>
         <input type="hidden" name="id_mhs_wali" value="<?php echo $id_mhs_wali; ?>" />

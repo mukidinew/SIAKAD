@@ -25,7 +25,7 @@
           </div>
           <div class="form-group">
             <label for="date">Tanggal Lahir <?php echo form_error('tgl_lahir') ?></label>
-            <input type="text" class="form-control" name="tgl_lahir" id="tgl_lahir" placeholder="Tgl Lahir" value="<?php echo $tgl_lahir; ?>" />
+            <input type="text" class="form-control datepicker" name="tgl_lahir" id="tgl_lahir" placeholder="Tgl Lahir" value="<?php echo $tgl_lahir; ?>" />
           </div>
           <div class="form-group">
             <label for="enum">Jenis Kelamin <?php echo form_error('jenkel') ?></label>
@@ -61,7 +61,7 @@
           </div>
           <div class="form-group">
             <label for="date">Tgl Masuk <?php echo form_error('tgl_masuk') ?></label>
-            <input type="text" class="form-control" name="tgl_masuk" id="tgl_masuk" placeholder="Tgl Masuk" value="<?php echo $tgl_masuk; ?>" />
+            <input type="text" class="form-control datepicker" name="tgl_masuk" id="tgl_masuk" placeholder="Tgl Masuk" value="<?php echo $tgl_masuk; ?>" />
           </div>
           <div class="form-group">
             <label for="varchar">Semester Masuk <?php echo form_error('smt_masuk') ?></label>
