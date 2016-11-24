@@ -41,17 +41,30 @@ class Transaksi extends CI_Controller {
 	}
 
 	public function laporan_buat(){
+		$this->load->library('fpdf_gen');
 		$angkatan = $this->input->post('angkatan');
 		$jurusan = $this->input->post('jurusan');
 		$tahun = $this->input->post('thn');
 		$jb = $this->input->post('jb');
+		if ($jurusan == '1') {
+			$data_laporan = $this->model_transaksi->get_query("SELECT * FROM view_pembayaran WHERE angkatan='".$angkatan."' AND nama_jns_bayar='".$jb."'");
+		}
+		else {
+			$data_laporan = $this->model_transaksi->get_query("SELECT * FROM view_pembayaran WHERE nim LIKE '%".$jurusan."%' AND (angkatan='".$angkatan."' AND (nama_jns_bayar='".$jb."'))");
+		}
 
-		$this->load->library('fpdf_gen');
-		$data_laporan = $this->model_transaksi->get_query("SELECT * FROM view_pembayaran WHERE nim LIKE '%".$jurusan."%' AND (angkatan='".$angkatan."' AND YEAR(tgl_byr)='".$tahun."' AND (nama_jns_bayar='".$jb."'))");
 		$data['data_laporan'] = $data_laporan;
 		//echo json_encode($data_laporan);
 		$data['angkatan'] = $angkatan;
-		$data['jurusan'] = $jurusan;
+		if ($jurusan=='55201') {
+			$data['jurusan'] = "TI";
+		}
+		else if ($jurusan=='57201') {
+				$data['jurusan'] = "SI";
+		}
+		else{
+				$data['jurusan'] = "SI/TI";
+		}
 		$data['tahun'] = $tahun;
 		$data['jenis_bayar'] = $jb;
 		$this->load->view("cetak_laporan",$data);

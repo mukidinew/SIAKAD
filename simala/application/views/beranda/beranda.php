@@ -316,69 +316,12 @@
   </div>
   <div class="row">
     <div class="col-md-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <div class="row">
-              <div class="col-xs-3">
-                  <i class="fa fa-shopping-cart"></i>
-              </div>
-              <div class="col-xs-9 text-right">
-                  <div class=""><b>Mahasiswa Per Angkatan</b></div>
-              </div>
-          </div>
-        </div>
+      <div class="panel panel-danger">
+        <div class="panel-heading"><b>Presentase Mahasiswa</b></div>
         <div class="panel-body">
-          <b>Mahasiswa Aktif</b><hr>
-          <table class="table table-bordered table-striped" id="tb_aktif">
-            <thead>
-                <tr>
-                    <th>2011</th>
-                    <th>2012</th>
-                    <th>2013</th>
-                    <th>2014</th>
-                    <th>2015</th>
-            		    <th>2016</th>
-                </tr>
-            </thead>
-    	       <tbody>
-               <tr>
-                <?php
-                $start = 0;
-                foreach ($mhs_aktif as $key => $value)
-                {
-                  ?>
-                    <td> <?php echo $value ?></td>
-                  <?php
-                }
-                ?>
-                </tr>
-            </tbody>
-          </table>
-          <b>Mahasiswa Lulus</b><hr>
-          <table class="table table-bordered table-striped" class="tb_aktif">
-            <thead>
-                <tr>
-                    <th>2007</th>
-                    <th>2008</th>
-                    <th>2009</th>
-                    <th>2010</th>
-            		    <th>2011</th>
-                </tr>
-            </thead>
-    	       <tbody>
-               <tr>
-                <?php
-                $start = 0;
-                foreach ($mhs_lulus as $key => $value)
-                {
-                  ?>
-                    <td> <?php echo $value ?></td>
-                  <?php
-                }
-                ?>
-                </tr>
-            </tbody>
-          </table>
+          <div class="canvas-wrapper">
+            <canvas class="main-chart" id="line-chart2" height="200" width="600"></canvas>
+          </div>
         </div>
       </div>
     </div>

@@ -41,12 +41,12 @@
                   <i class="fa fa-shopping-cart"></i>
               </div>
               <div class="col-xs-9 text-right">
-                  <div class=""><b>Menu Pintasan [ UNDER CONSTRUCTION ]</b></div>
+                  <div class=""><b>PERBAIKAN</b></div>
               </div>
           </div>
         </div>
         <div class="panel-body">
-          
+
         </div>
       </div>
     </div>
@@ -119,7 +119,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div class="panel panel-primary">
           <div class="panel-heading">
             <div class="row">
@@ -127,29 +127,29 @@
                     <i class="fa fa-shopping-cart"></i>
                 </div>
                 <div class="col-xs-9 text-right">
-                    <div class=""><b>Pengumuman Kampus</b></div>
+                    <div class=""><b>Jadwal Mata Kuliah Anda Hari Ini</b></div>
                 </div>
             </div>
           </div>
           <div class="panel-body">
-
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <div class="row">
-                <div class="col-xs-3">
-                    <i class="fa fa-shopping-cart"></i>
-                </div>
-                <div class="col-xs-9 text-right">
-                    <div class=""><b>Under Construction</b></div>
-                </div>
-            </div>
-          </div>
-          <div class="panel-body">
-
+            <table class="table table-bordered table-striped table_a">
+              <thead>
+                <tr>
+                  <th>Jam</th>
+                  <th>Mata Kuliah</th>
+                  <th>Ruangan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($data_jadwal as $key): ?>
+                  <tr>
+                    <td><?php echo $key->nm_jam ?></td>
+                    <td><?php echo $key->nm_mk ?></td>
+                    <td><?php echo $key->nm_ruangan ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

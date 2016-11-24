@@ -43,7 +43,7 @@ class Auth extends CI_Controller {
 				if ($hasil->num_rows() == 1) {
 					$hasil = $hasil->row();
 					$session_prodi = array('login' => TRUE,
-										 'url' => base_url(),
+									 'url' => base_url(),
 									 'user' => $hasil->username,
 									 'level' => $hasil->level,
 									 'nim' => $hasil->nim,
@@ -51,7 +51,8 @@ class Auth extends CI_Controller {
 									 'cheking' => $hasil->status_cek,
 									 'status_mhs' => $hasil->status_mhs,
 									 'ta' => $hasil->ta,
-									 'kode_prodi'=>$hasil->id_prodi
+									 'kode_prodi'=>$hasil->id_prodi,
+									 'id_kurikulum'=>$hasil->id_kurikulum
 						);
 
 						$this->session->sess_expiration = '1800'; //session timeout 15 minute

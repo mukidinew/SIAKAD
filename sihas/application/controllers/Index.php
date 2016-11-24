@@ -47,13 +47,32 @@ class Index extends CI_Controller
     $buka_krs = $this->app_model->get_query('SELECT * FROM v_count_down WHERE id_cd_krs="6"');
     $pengumuman = $this->app_model->get_query("SELECT * FROM tb_pengumuman WHERE status='Y' ORDER BY id_pengumuman ASC")->result();
 
+    $namahari = date("l");
+
+    if ($namahari == "Sunday") $namahari = "Minggu";
+    else if ($namahari == "Monday") $namahari = "Senin";
+    else if ($namahari == "Tuesday") $namahari = "Selasa";
+    else if ($namahari == "Wednesday") $namahari = "Rabu";
+    else if ($namahari == "Thursday") $namahari = "Kamis";
+    else if ($namahari == "Friday") $namahari = "Jumat";
+    else if ($namahari == "Saturday") $namahari = "Sabtu";
+    $data_mhs_jadwal = $this->app_model->get_query("SELECT * FROM v_data_krs WHERE nim='". $this->session->userdata('nim') ."'")->result();
+    $data_jadwal=[];
+    foreach ($data_mhs_jadwal as $key) {
+      $data_jadwal_cari = $this->app_model->get_query("SELECT * FROM v_jadwal WHERE nm_hari='".$namahari."' AND (kode_mk ='".$key->id_matkul."' AND (nm_kelas='".$key->nm_kelas."' AND id_kurikulum='". $this->session->userdata('id_kurikulum')."'))");
+      if ($data_jadwal_cari->num_rows()==1) {
+        array_push($data_jadwal,$data_jadwal_cari->row());
+      }
+
+    }
+    $data['data_jadwal'] = $data_jadwal;
     $data['pengumuman']= $buka_krs->row();
     $data['pengumuman_penting']= $pengumuman;
     $data['mhs_aktif'] = $data_angkatan;
     $data['mhs_lulus'] = $data_lulus;
     $data['site_title'] = 'SIPAD';
     $data['title_page'] = 'SELAMAT DATANG DI SIHAS || SISTEM INFORMASI HASIL ANALISA STUDI';
-    $data['assign_js'] = '';
+    $data['assign_js'] = 'beranda/js/index.js';
     load_view('beranda/beranda', $data);
   }
 }

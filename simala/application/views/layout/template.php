@@ -81,6 +81,7 @@
                     <li><a href="<?php echo base_url('kelas_kuliah.html') ?>"><i class="fa fa-university"></i> Kelas Kuliah</a></li>
                     <li><a href="<?php echo base_url('data_krs.html') ?>"><i class="fa fa-newspaper-o"></i> KRS Mahasiswa</a></li>
                     <li><a href="<?php echo base_url('kelas_dosen.html') ?>"><i class="fa fa-briefcase"></i> Kelas Dosen</a></li>
+                    <li><a href="<?php echo base_url('jadwal.html') ?>"><i class="fa fa-briefcase"></i> Jadwal Perkuliahan</a></li>
                     <li><a href="<?php echo base_url('nilai.html') ?>"><i class="fa fa-tasks"></i> Nilai</a></li>
                   </ul>
                 </li>
@@ -100,6 +101,7 @@
                     <li><a href="<?php echo base_url('agama.html') ?>"><i class="fa fa-child"></i> Agama</a></li>
                     <li><a href="<?php echo base_url('jenis_keluar.html') ?>"><i class="fa fa-bar-chart-o"></i> Jenis Keluar</a></li>
                     <li><a href="<?php echo base_url('status_mhs.html') ?>"><i class="fa fa-database"></i> Status Mahasiswa</a></li>
+                    <li><a href="<?php echo base_url('ruangan.html') ?>"><i class="fa fa-database"></i> Ruangan</a></li>
                   </ul>
                 </li>
                 <li class="dropdown">
@@ -155,6 +157,7 @@
     <script src="<?php echo base_url(); ?>assets/js/dropdowns-enhancement.js?v=3.1.1"></script>
     <script src="<?php echo base_url();?>assets/js/back-to-top.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery.form.js"></script>
+    <script src="<?php echo base_url();?>assets/js/chart.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/app.js"></script>
     <script src="<?php echo base_url();?>assets/js/bootstrap-typeahead.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/bootstrap-datepicker.js"></script>

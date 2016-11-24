@@ -10,7 +10,8 @@
 </section>
 <section class="content">
   <div class="col-md-4">
-    <form class="" action="<?php echo site_url('transaksi/laporan_buat') ?>" method="post">
+    <b>Laporan Umum</b><hr>
+    <form class="form" role="form" action="<?php echo site_url('transaksi/laporan_buat') ?>" method="post">
       <div class="form-group">
         <label for="">Angkatan</label>
         <select id="angkatan" name="angkatan" class="form-control" required="required">
@@ -41,27 +42,47 @@
           <option value="">--Pilih Jurusan--</option>
           <option value="55201">Teknik Informatika</option>
           <option value="57201">Sistem Informasi</option>
+          <option value="1">Semua Jurusan</option>
         </select>
       </div>
-
       <div class="form-group">
-        <label for="">Tahun</label>
+        <button type="submit" formtarget="_blank" name="submit" class="btn btn-success pull-right"> Buat Laporan</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <b>Laporan Pembayaran Semester</b><hr>
+    <form class="form" role="form" action="<?php echo site_url('') ?>" method="post">
+      <div class="form-group">
+        <label for="">Jurusan</label>
+        <select id="jurusan" name="jurusan" class="form-control" required="required">
+          <option value="">--Pilih Jurusan--</option>
+          <option value="55201">Teknik Informatika</option>
+          <option value="57201">Sistem Informasi</option>
+          <option value="1">Semua Jurusan</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="">Tahun Ajaran</label>
         <select id="thn" name="thn" class="form-control" required="required">
           <option value="">--Pilih Tahun--</option>
           <?php
             for ($i=2015; $i <= 2020; $i++) {
+              for ($a=1; $a <=2 ; $a++) {
               ?>
-              <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                <option value="<?php echo $i."/".$a ?>"><?php echo $i."/".$a ?></option>
               <?php
+              }
             }
           ?>
         </select>
       </div>
       <div class="form-group">
-        <button type="submit" name="submit" class="btn btn-success pull-right"> Buat Laporan</button>
+        <button type="submit" formtarget="_blank" name="submit" class="btn btn-success pull-right"> Buat Laporan</button>
       </div>
     </form>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-4">
+    <b>Laporan Pembayaran Pembangunan</b><hr>
   </div>
 </section>
