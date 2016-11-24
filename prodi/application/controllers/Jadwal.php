@@ -24,7 +24,7 @@ class Jadwal extends CI_Controller
 
     public function index()
     {
-        $jadwal = $this->App_model->get_query("SELECT * FROM v_jadwal")->result();
+        $jadwal = $this->App_model->get_query("SELECT * FROM v_jadwal WHERE kd_prodi='".$this->session->userdata('level_prodi')."'")->result();
         $kurikulum_data = $this->kurikulum->get_all($this->session->userdata('level_prodi'));
 
         $data = array(
@@ -229,5 +229,73 @@ class Jadwal extends CI_Controller
       $data['title_page'] = 'Olah Data Jadwal Perkuliahan';
       $data['assign_js'] = 'jadwal/js/index.js';
       load_view('jadwal/tb_jadwal_list_result', $data);
+    }
+
+    public function getKurikulum(){
+      $cari = $this->input->post('q');
+      $temp_cari = $cari==''?'':$cari;
+      $page = $this->input->post('page');
+      if ($page=='') {
+        $kurikulum = $this->App_model->get_query("SELECT * FROM tb_kurikulum where kd_prodi='".$this->session->userdata('level_prodi')."'")->result();
+      }
+      else {
+        $kurikulum = $this->App_model->get_query("SELECT * FROM tb_kurikulum WHERE kd_prodi='".$this->session->userdata('level_prodi')."' AND nm_kurikulum LIKE '%".$cari."%' AND ta LIKE '%".$cari."%' ORDER BY ta DESC")->result();
+      }
+
+      $temps = array();
+      foreach ($kurikulum as $key) {
+        $temps[] = array(
+          'id_kurikulum' => $key->id_kurikulum,
+          'nm_kurikulum' => $key->nm_kurikulum,
+          'ta' => $key->ta,
+          'kd_prodi' => $key->kd_prodi
+        );
+      }
+      echo json_encode($temps);
+    }
+    public function getKelasDosen($a='')
+    {
+      $cari = $this->input->post('q');
+      $temp_cari = $cari==''?'':$cari;
+      $page = $this->input->post('page');
+      if ($page=='') {
+        $kelas_dosen = $this->App_model->get_query("SELECT * FROM v_kelas_dosen WHERE id_kurikulum='".$a."'")->result();
+      }
+      else {
+        $kelas_dosen = $this->App_model->get_query("SELECT * FROM v_kelas_dosen WHERE id_kurikulum='".$a."' AND (nm_mk LIKE '%".$cari."%' OR (kode_mk LIKE '%".$cari."%' OR nm_kelas LIKE '%".$cari."%'))")->result();
+      }
+
+      $temps = array();
+      foreach ($kelas_dosen as $key) {
+        $temps[] = array(
+          'id_kelas_dosen' => $key->id_kelas_dosen,
+          'nm_mk' => $key->nm_mk,
+          'kode_mk' => $key->kode_mk,
+          'nm_kelas' => $key->nm_kelas
+        );
+      }
+      echo json_encode($temps);
+    }
+
+    public function getRuangan()
+    {
+      $cari = $this->input->post('q');
+      $temp_cari = $cari==''?'':$cari;
+      $page = $this->input->post('page');
+      if ($page=='') {
+        $ruangan = $this->App_model->get_query("SELECT * FROM tb_ruangan")->result();
+      }
+      else {
+        $ruangan = $this->App_model->get_query("SELECT * FROM tb_ruangan WHERE nm_ruangan LIKE '%".$cari."%'")->result();
+      }
+
+      $temps = array();
+      foreach ($ruangan as $key) {
+        $temps[] = array(
+          'id_ruangan' => $key->id_ruangan,
+          'nm_ruangan' => $key->nm_ruangan
+        );
+      }
+      echo json_encode($temps);
     }
 }

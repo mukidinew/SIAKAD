@@ -79,6 +79,7 @@
                     <li><a href="<?php echo base_url('kurikulum.html') ?>"><i class="fa fa-sticky-note"></i> Kurikulum</a></li>
                     <li><a href="<?php echo base_url('kelas_kuliah.html') ?>"><i class="fa fa-university"></i> Kelas Kuliah</a></li>
                     <li><a href="<?php echo base_url('kelas_dosen.html') ?>"><i class="fa fa-briefcase"></i> Kelas Dosen</a></li>
+                    <li><a href="<?php echo base_url('jadwal.html') ?>"><i class="fa fa-briefcase"></i> Jadwal Perkuliahan</a></li>
                     <li><a href="<?php echo base_url('nilai.html') ?>"><i class="fa fa-tasks"></i> Nilai</a></li>
                   </ul>
                 </li>
