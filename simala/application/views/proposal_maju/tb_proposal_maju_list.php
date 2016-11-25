@@ -50,7 +50,7 @@
                   <a href='<?php echo site_url('proposal_maju/read/'.$proposal_maju->id_proposal_maju) ?>'><i class='fa fa-eye'></i></a> |
                   <a href='<?php echo site_url('proposal_maju/update/'.$proposal_maju->id_proposal_maju) ?>'><i class='fa fa-pencil-square-o'></i></a> |
                   <a href='<?php echo site_url('proposal_maju/delete/'.$proposal_maju->id_proposal_maju) ?>' onclick='javasciprt: return confirm("Are You Sure ?")'><i class='fa fa-trash-o'></i></a> |
-                  <a href="<?php echo site_url('proposal_maju/cetak_surat/'.$proposal_maju->id_proposal_maju) ?>" target="_blank"><i class='fa fa-gears'> Surat</i></a>
+                  <!-- <a href="<?php echo site_url('proposal_maju/cetak_surat/'.$proposal_maju->id_proposal_maju) ?>" target="_blank"><i class='fa fa-gears'> Surat</i></a> -->
                 </td>
               </tr>
               <?php

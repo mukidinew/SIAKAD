@@ -8,9 +8,18 @@ class Proposal_maju extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Proposal_maju_model');
-        $this->load->model('App_model');
-        $this->load->library('form_validation');
+        if (!$this->session->userdata('login')) {
+          redirect('auth');
+        }
+        else if($this->session->userdata('level') != 'baak'){
+            redirect('auth/logout');
+        }
+        else {
+          $this->load->model('Proposal_maju_model');
+          $this->load->model('App_model');
+          $this->load->library('form_validation');
+        }
+
     }
 
     public function index()
@@ -19,7 +28,7 @@ class Proposal_maju extends CI_Controller
         $data = array(
             'proposal_maju_data' => $proposal_maju
         );
-        $data['site_title'] = 'SIPAD';
+        $data['site_title'] = 'SIMALA';
         $data['title_page'] = 'Olah Data Maju Proposal';
         $data['assign_js'] = 'proposal_maju/js/index.js';
         load_view('proposal_maju/tb_proposal_maju_list', $data);
@@ -38,7 +47,7 @@ class Proposal_maju extends CI_Controller
 		'status_kliring' => $row->status_kliring,
 		'tgl_daftar' => $row->tgl_daftar,
 	    );
-      $data['site_title'] = 'SIPAD';
+      $data['site_title'] = 'SIMALA';
       $data['title_page'] = 'Olah Data Maju Proposal';
       $data['assign_js'] = 'proposal_maju/js/index.js';
             load_view('proposal_maju/tb_proposal_maju_read', $data);
@@ -63,7 +72,7 @@ class Proposal_maju extends CI_Controller
               'tgl_daftar' => set_value('tgl_daftar'),
         	    'tgl_maju' => set_value('tgl_maju'),
         	);
-          $data['site_title'] = 'SIPAD';
+          $data['site_title'] = 'SIMALA';
           $data['title_page'] = 'Olah Data Maju Proposal';
           $data['assign_js'] = 'proposal_maju/js/index.js';
         load_view('proposal_maju/tb_proposal_maju_form', $data);
@@ -109,7 +118,7 @@ class Proposal_maju extends CI_Controller
     'tgl_daftar' => set_value('tgl_daftar', $row->tgl_daftar),
 		'tgl_maju' => set_value('tgl_maju', $row->tgl_maju),
 	    );
-      $data['site_title'] = 'SIPAD';
+      $data['site_title'] = 'SIMALA';
       $data['title_page'] = 'Olah Data Maju Proposal';
       $data['assign_js'] = 'proposal_maju/js/index.js';
             load_view('proposal_maju/tb_proposal_maju_form', $data);

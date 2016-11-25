@@ -72,6 +72,8 @@
                     <li><a href="<?php echo base_url('mata_kuliah.html') ?>"><i class="fa fa-file-archive-o"></i> Mata Kuliah</a></li>
                     <li><a href="<?php echo base_url('mata_kuliah_kurikulum.html') ?>"><i class="fa fa-file-archive-o"></i> Mata Kuliah Kurikulum</a></li>
                     <!-- <li><a href="<?php echo base_url('.html') ?>"><i class="fa fa-calendar"></i> Kalender</a></li> -->
+                    <li><a href="<?php echo base_url('dosen_wali') ?>"><i class="fa fa-sticky-note"></i> Data Dosen Wali</a></li>
+                    <li><a href="<?php echo base_url('mhs_wali') ?>"><i class="fa fa-sticky-note"></i> Data Dosen Wali Mahasiswa</a></li>
                   </ul>
                 </li>
                 <li class="dropdown">
@@ -105,29 +107,18 @@
                   </ul>
                 </li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="	fa fa-bar-chart"></i> Perwalian<span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="<?php echo base_url('dosen_wali') ?>"><i class="fa fa-sticky-note"></i> Data Dosen Wali</a></li>
-                    <li><a href="<?php echo base_url('mhs_wali') ?>"><i class="fa fa-sticky-note"></i> Data Dosen Wali Mahasiswa</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="	fa fa-bar-chart"></i> Proposal<span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="	fa fa-bar-chart"></i> Proposal Skripsi<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="<?php echo base_url('proposal_maju') ?>"><i class="fa fa-sticky-note"></i> Daftar Proposal</a></li>
+                    <li><a href="<?php echo base_url('skripsi') ?>"><i class="fa fa-sticky-note"></i> Daftar Skripsi</a></li>
                   </ul>
                 </li>
             </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cloud-download"></i> Sync Data <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="<?php echo base_url('sync.html') ?>"><i class="fa fa-cloud-upload"></i> Syncs Item</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">  <?php echo strtoupper($this->session->userdata('nama')); ?><span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
+                <li><a href="<?php echo base_url('sync.html') ?>"><i class="fa fa-cloud-upload"></i> Syncs Item</a></li>
                 <li><a href="<?php echo base_url('setting.html') ?>"><i class="fa fa-gears"></i> Setting</a></li>
                 <li><a href="<?php echo base_url('countdown_khs.html') ?>"><i class="fa fa-gears"></i> Setting KHS</a></li>
                 <li><a href="<?php echo base_url('countdown_krs.html') ?>"><i class="fa fa-gears"></i> Setting KRS</a></li>

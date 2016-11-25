@@ -320,7 +320,7 @@
         <div class="panel-heading"><b>Presentase Mahasiswa</b></div>
         <div class="panel-body">
           <div class="canvas-wrapper">
-            <canvas class="main-chart" id="line-chart2" height="200" width="600"></canvas>
+            <canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>
           </div>
         </div>
       </div>
