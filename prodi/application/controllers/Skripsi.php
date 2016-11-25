@@ -8,14 +8,21 @@ class Skripsi extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Skripsi_model');
-        $this->load->model("App_model");
-        $this->load->library('form_validation');
+        if (!$this->session->userdata('login')) {
+          redirect('auth');
+        }
+        else if($this->session->userdata('level') != 'prodi'){
+            redirect('auth/logout');
+        }
+        else {
+          $this->load->model('Skripsi_model');
+          $this->load->model("App_model");
+          $this->load->library('form_validation');
+        }
     }
-
     public function index()
     {
-        $skripsi = $this->Skripsi_model->get_all();
+        $skripsi = $this->App_model->get_query("SELECT * FROM v_skripsi")->result();
 
         $data = array(
             'skripsi_data' => $skripsi
@@ -32,11 +39,8 @@ class Skripsi extends CI_Controller
         if ($row) {
             $data = array(
         		'id_skripsi' => $row->id_skripsi,
-        		'id_proposal_maju' => $row->id_proposal_maju,
-        		'bebas_pustaka' => $row->bebas_pustaka,
-        		'bebas_smt' => $row->bebas_smt,
-        		'bebas_proposal' => $row->bebas_proposal,
-        		'tgl_daftar' => $row->tgl_daftar,
+        		'valid_prodi' => $row->valid_prodi,
+        		'tgl_maju' => $row->tgl_maju,
         	  );
             $data['site_title'] = 'SIPAD';
             $data['title_page'] = 'Olah Data Skripsi Mahasiswa';
@@ -53,16 +57,13 @@ class Skripsi extends CI_Controller
         $data = array(
             'button' => 'Create',
             'action' => site_url('skripsi/create_action'),
-	    'id_skripsi' => set_value('id_skripsi'),
-	    'id_proposal_maju' => set_value('id_proposal_maju'),
-	    'bebas_pustaka' => set_value('bebas_pustaka'),
-	    'bebas_smt' => set_value('bebas_smt'),
-	    'bebas_proposal' => set_value('bebas_proposal'),
-	    'tgl_daftar' => set_value('tgl_daftar'),
-	);
-  $data['site_title'] = 'SIPAD';
-  $data['title_page'] = 'Olah Data Skripsi Mahasiswa';
-  $data['assign_js'] = 'skripsi/js/index.js';
+      	    'id_skripsi' => set_value('id_skripsi'),
+      	    'valid_prodi' => set_value('valid_prodi'),
+      	    'tgl_maju' => set_value('tgl_maju'),
+      	);
+        $data['site_title'] = 'SIPAD';
+        $data['title_page'] = 'Olah Data Skripsi Mahasiswa';
+        $data['assign_js'] = 'skripsi/js/index.js';
         load_view('skripsi/tb_skripsi_form', $data);
     }
 
@@ -74,12 +75,9 @@ class Skripsi extends CI_Controller
             $this->create();
         } else {
             $data = array(
-		'id_proposal_maju' => $this->input->post('id_proposal_maju',TRUE),
-		'bebas_pustaka' => $this->input->post('bebas_pustaka',TRUE),
-		'bebas_smt' => $this->input->post('bebas_smt',TRUE),
-		'bebas_proposal' => $this->input->post('bebas_proposal',TRUE),
-		'tgl_daftar' => $this->input->post('tgl_daftar',TRUE),
-	    );
+          		'valid_prodi' => $this->input->post('valid_prodi',TRUE),
+          		'tgl_maju' => $this->input->post('tgl_maju',TRUE),
+        	  );
 
             $this->Skripsi_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
@@ -95,16 +93,13 @@ class Skripsi extends CI_Controller
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('skripsi/update_action'),
-		'id_skripsi' => set_value('id_skripsi', $row->id_skripsi),
-		'id_proposal_maju' => set_value('id_proposal_maju', $row->id_proposal_maju),
-		'bebas_pustaka' => set_value('bebas_pustaka', $row->bebas_pustaka),
-		'bebas_smt' => set_value('bebas_smt', $row->bebas_smt),
-		'bebas_proposal' => set_value('bebas_proposal', $row->bebas_proposal),
-		'tgl_daftar' => set_value('tgl_daftar', $row->tgl_daftar),
-	    );
-      $data['site_title'] = 'SIPAD';
-      $data['title_page'] = 'Olah Data Skripsi Mahasiswa';
-      $data['assign_js'] = 'skripsi/js/index.js';
+            		'id_skripsi' => set_value('id_skripsi', $row->id_skripsi),
+            		'valid_prodi' => set_value('valid_prodi', $row->valid_prodi),
+            		'tgl_maju' => set_value('tgl_maju', $row->tgl_maju),
+            );
+            $data['site_title'] = 'SIPAD';
+            $data['title_page'] = 'Olah Data Skripsi Mahasiswa';
+            $data['assign_js'] = 'skripsi/js/index.js';
             load_view('skripsi/tb_skripsi_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
@@ -120,12 +115,9 @@ class Skripsi extends CI_Controller
             $this->update($this->input->post('id_skripsi', TRUE));
         } else {
             $data = array(
-		'id_proposal_maju' => $this->input->post('id_proposal_maju',TRUE),
-		'bebas_pustaka' => $this->input->post('bebas_pustaka',TRUE),
-		'bebas_smt' => $this->input->post('bebas_smt',TRUE),
-		'bebas_proposal' => $this->input->post('bebas_proposal',TRUE),
-		'tgl_daftar' => $this->input->post('tgl_daftar',TRUE),
-	    );
+        		'valid_prodi' => $this->input->post('valid_prodi',TRUE),
+        		'tgl_maju' => $this->input->post('tgl_maju',TRUE),
+        	  );
 
             $this->Skripsi_model->update($this->input->post('id_skripsi', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -149,14 +141,11 @@ class Skripsi extends CI_Controller
 
     public function _rules()
     {
-	$this->form_validation->set_rules('id_proposal_maju', 'id proposal maju', 'trim|required');
-	$this->form_validation->set_rules('bebas_pustaka', 'bebas pustaka', 'trim|required');
-	$this->form_validation->set_rules('bebas_smt', 'bebas smt', 'trim|required');
-	$this->form_validation->set_rules('bebas_proposal', 'bebas proposal', 'trim|required');
-	$this->form_validation->set_rules('tgl_daftar', 'tgl daftar', 'trim|required');
+    	$this->form_validation->set_rules('valid_prodi', 'valid prodi', 'trim|required');
+    	$this->form_validation->set_rules('tgl_maju', 'tgl maju', 'trim|required');
 
-	$this->form_validation->set_rules('id_skripsi', 'id_skripsi', 'trim');
-	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+    	$this->form_validation->set_rules('id_skripsi', 'id_skripsi', 'trim');
+    	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
     public function excel()

@@ -126,6 +126,7 @@
     <script src="<?php echo base_url();?>assets/js/back-to-top.js"></script>
     <script src="<?php echo base_url();?>assets/js/bootstrap-typeahead.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/bootstrap-datepicker.js"></script>
+    <script src="<?php echo base_url();?>assets/js/chart.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/app.js"></script>
     <?php
         //echo $assign_js;

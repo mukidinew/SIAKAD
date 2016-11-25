@@ -1,8 +1,11 @@
 <div class="container-fluid">
   <div class="page-header" style="margin-top: 50px;">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6">
         <h3><?php echo $title_page; ?></h3>
+      </div>
+      <div class="col-md-6">
+
       </div>
     </div>
   </div>
@@ -15,7 +18,7 @@
                   <i class="fa fa-shopping-cart"></i>
               </div>
               <div class="col-xs-9 text-right">
-                  <div class=""><b>Menu Pintasan [ UNDER CONSTRUCTION ]</b></div>
+                  <div class=""><b>Menu Pintasan</b></div>
               </div>
           </div>
         </div>
@@ -36,7 +39,7 @@
                                       <i class="fa fa-users fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">26</div>
+                                      <div class="huge"><?php echo $count_mhs ?></div>
                                       <div>Mahasiswa Baru</div>
                                   </div>
                               </div>
@@ -58,12 +61,12 @@
                                       <i class="fa fa-mortar-board fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">12</div>
+                                      <div class="huge"><?php echo $count_mhs_lulus ?></div>
                                       <div>Mahasiswa Lulus</div>
                                   </div>
                               </div>
                           </div>
-                          <a href="#">
+                          <a href="<?php echo base_url('mahasiswa_lulus.html') ?>">
                               <div class="panel-footer">
                                   <span class="pull-left">View Details</span>
                                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -89,12 +92,12 @@
                                       <i class="fa  fa-list-ul fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">124</div>
+                                      <div class="huge"><?php echo $count_mata_kuliah ?></div>
                                       <div>Mata Kuliah</div>
                                   </div>
                               </div>
                           </div>
-                          <a href="#">
+                          <a href="<?php echo base_url('mata_kuliah.html') ?>">
                               <div class="panel-footer">
                                   <span class="pull-left">View Details</span>
                                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -111,12 +114,12 @@
                                       <i class="fa fa-bar-chart-o fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">12</div>
+                                      <div class="huge"><?php echo $count_mk_kur ?></div>
                                       <div>MK Kurikulum</div>
                                   </div>
                               </div>
                           </div>
-                          <a href="#">
+                          <a href="<?php echo base_url('mata_kuliah_kurikulum.html') ?>">
                               <div class="panel-footer">
                                   <span class="pull-left">View Details</span>
                                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -146,12 +149,12 @@
                                       <i class="fa  fa-list-ul fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">124</div>
-                                      <div>Mata Kuliah</div>
+                                      <div class="huge"></div>
+                                      <div>Kariawan</div>
                                   </div>
                               </div>
                           </div>
-                          <a href="#">
+                          <a href="<?php echo base_url('kariawan.html') ?>">
                               <div class="panel-footer">
                                   <span class="pull-left">View Details</span>
                                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -168,12 +171,12 @@
                                       <i class="fa fa-mortar-board fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">12</div>
-                                      <div>MK Kurikulum</div>
+                                      <div class="huge"></div>
+                                      <div>Tambah Data</div>
                                   </div>
                               </div>
                           </div>
-                          <a href="#">
+                          <a href="<?php echo base_url('kariawan/create.html') ?>">
                               <div class="panel-footer">
                                   <span class="pull-left">View Details</span>
                                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -199,12 +202,12 @@
                                       <i class="fa  fa-list-ul fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">124</div>
-                                      <div>Mata Kuliah</div>
+                                      <div class="huge"></div>
+                                      <div>Dosen</div>
                                   </div>
                               </div>
                           </div>
-                          <a href="#">
+                          <a href="<?php echo base_url('dosen.html') ?>">
                               <div class="panel-footer">
                                   <span class="pull-left">View Details</span>
                                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -221,12 +224,12 @@
                                       <i class="fa fa-mortar-board fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">12</div>
-                                      <div>MK Kurikulum</div>
+                                      <div class="huge"></div>
+                                      <div>Tambah Data</div>
                                   </div>
                               </div>
                           </div>
-                          <a href="#">
+                          <a href="<?php echo base_url('dosen/create.html') ?>">
                               <div class="panel-footer">
                                   <span class="pull-left">View Details</span>
                                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -256,12 +259,12 @@
                                       <i class="fa  fa-list-ul fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">124</div>
-                                      <div>Mata Kuliah</div>
+                                      <div class="huge"><?php echo $count_kelas_kuliah ?></div>
+                                      <div>Kelas Kuliah</div>
                                   </div>
                               </div>
                           </div>
-                          <a href="#">
+                          <a href="<?php echo base_url('kelas_kuliah.html') ?>">
                               <div class="panel-footer">
                                   <span class="pull-left">View Details</span>
                                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -278,12 +281,12 @@
                                       <i class="fa fa-mortar-board fa-5x"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div class="huge">12</div>
-                                      <div>MK Kurikulum</div>
+                                      <div class="huge"><?php echo $count_data_krs ?></div>
+                                      <div>KRS Mahasiswa</div>
                                   </div>
                               </div>
                           </div>
-                          <a href="#">
+                          <a href="<?php echo base_url('data_krs.html') ?>">
                               <div class="panel-footer">
                                   <span class="pull-left">View Details</span>
                                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -313,68 +316,12 @@
   </div>
   <div class="row">
     <div class="col-md-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <div class="row">
-              <div class="col-xs-3">
-                  <i class="fa fa-shopping-cart"></i>
-              </div>
-              <div class="col-xs-9 text-right">
-                  <div class=""><b>Mahasiswa Per Angkatan</b></div>
-              </div>
-          </div>
-        </div>
+      <div class="panel panel-danger">
+        <div class="panel-heading"><b>Presentase Mahasiswa</b></div>
         <div class="panel-body">
-          <b>Mahasiswa Aktif</b><hr>
-          <table class="table table-bordered table-striped" id="tb_aktif">
-            <thead>
-                <tr>
-                    <th>2011</th>
-                    <th>2012</th>
-                    <th>2013</th>
-                    <th>2014</th>
-            		    <th>2015</th>
-                </tr>
-            </thead>
-    	       <tbody>
-               <tr>
-                <?php
-                $start = 0;
-                foreach ($mhs_aktif as $key => $value)
-                {
-                  ?>
-                    <td> <?php echo $value ?></td>
-                  <?php
-                }
-                ?>
-                </tr>
-            </tbody>
-          </table>
-          <b>Mahasiswa Lulus</b><hr>
-          <table class="table table-bordered table-striped" class="tb_aktif">
-            <thead>
-                <tr>
-                    <th>2007</th>
-                    <th>2008</th>
-                    <th>2009</th>
-                    <th>2010</th>
-            		    <th>2011</th>
-                </tr>
-            </thead>
-    	       <tbody>
-               <tr>
-                <?php
-                $start = 0;
-                foreach ($mhs_lulus as $key => $value)
-                {
-                  ?>
-                    <td> <?php echo $value ?></td>
-                  <?php
-                }
-                ?>
-                </tr>
-            </tbody>
-          </table>
+          <div class="canvas-wrapper">
+            <canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>
+          </div>
         </div>
       </div>
     </div>
@@ -386,7 +333,7 @@
                   <i class="fa fa-shopping-cart"></i>
               </div>
               <div class="col-xs-9 text-right">
-                  <div class=""><b>Presentase Pelaporan Setiap Periode [ UNDER CONSTRUCTION ]</b></div>
+                  <div class=""><b>Presentase Pelaporan Setiap Periode</b></div>
               </div>
           </div>
         </div>

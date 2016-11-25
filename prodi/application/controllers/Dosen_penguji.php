@@ -8,11 +8,18 @@ class Dosen_penguji extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Dosen_penguji_model');
-        $this->load->model('App_model');
-        $this->load->library('form_validation');
+        if (!$this->session->userdata('login')) {
+          redirect('auth');
+        }
+        else if($this->session->userdata('level') != 'prodi'){
+            redirect('auth/logout');
+        }
+        else {
+          $this->load->model('Dosen_penguji_model');
+          $this->load->model('App_model');
+          $this->load->library('form_validation');
+        }
     }
-
     public function index()
     {
         $mhs_proposal = $this->App_model->get_query("SELECT * FROM v_proposal_maju WHERE id_prodi='".$this->session->userdata('level_prodi')."'")->result();
