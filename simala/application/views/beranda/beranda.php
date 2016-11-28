@@ -338,7 +338,9 @@
           </div>
         </div>
         <div class="panel-body">
-
+          <div class="canvas-wrapper">
+            <canvas class="main-chart2" id="line-chart2" height="200" width="600"></canvas>
+          </div>
         </div>
       </div>
     </div>

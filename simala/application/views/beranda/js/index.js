@@ -42,6 +42,11 @@
     		var myLine = new Chart(temp).Line(lineChartData, {
     			responsive: true
     		});
+
+        var temp1 = document.getElementById("line-chart2").getContext("2d");
+    		var myLine1 = new Chart(temp1).Line(lineChartData, {
+    			responsive: true
+    		});
       });
     });
 </script>

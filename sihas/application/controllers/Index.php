@@ -60,6 +60,7 @@ class Index extends CI_Controller
     $data_jadwal=[];
     foreach ($data_mhs_jadwal as $key) {
       $data_jadwal_cari = $this->app_model->get_query("SELECT * FROM v_jadwal WHERE nm_hari='".$namahari."' AND (kode_mk ='".$key->id_matkul."' AND (nm_kelas='".$key->nm_kelas."' AND id_kurikulum='". $this->session->userdata('id_kurikulum')."'))");
+      
       if ($data_jadwal_cari->num_rows()==1) {
         array_push($data_jadwal,$data_jadwal_cari->row());
       }
